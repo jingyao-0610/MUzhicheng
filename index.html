@@ -1,0 +1,2905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>穆祉丞 · 祉愿同纸</title>
+  <meta name="description" content="穆祉丞（恩仔）— 2007年11月16日生于重庆，TF_ING 旗下全能偶像。粉丝名：小纸团。" />
+  <style>
+    /* =========================================================
+       主题：橙粉渐变（暖色系）
+       想换主题，只改 :root 里的颜色变量即可
+       ========================================================= */
+    :root {
+      --bg-0: #1a0a12;
+      --bg-1: #2a0e1c;
+      --bg-2: #3a1424;
+      --accent-pink: #ff6b9d;
+      --accent-orange: #ff8c5a;
+      --accent-gold: #ffc480;
+      --text: #fff4ec;
+      --text-dim: #e6b8a8;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-strong: rgba(255, 255, 255, 0.10);
+      --border: rgba(255, 200, 170, 0.18);
+      --shadow: 0 20px 60px rgba(255, 100, 80, 0.25);
+      --radius: 18px;
+      --maxw: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Roboto, "Helvetica Neue", Arial,
+        sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at top, rgba(58,20,36,0.45) 0%, rgba(42,14,28,0.45) 35%, rgba(7,6,26,0.45) 100%),
+        url('bg.jpg') center / cover no-repeat fixed;
+      background-size: auto, cover;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 背景暖色光斑（呼应橙粉主题） */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, #ffd9b3, transparent 50%),
+        radial-gradient(1px 1px at 80% 10%, #ffe0cc, transparent 50%),
+        radial-gradient(1.5px 1.5px at 50% 70%, #ffd1b3, transparent 50%),
+        radial-gradient(1px 1px at 10% 80%, #ffefe0, transparent 50%),
+        radial-gradient(1.2px 1.2px at 90% 50%, #ffd1b3, transparent 50%),
+        radial-gradient(1px 1px at 35% 50%, #fff0e0, transparent 50%),
+        radial-gradient(1px 1px at 65% 20%, #ffd9b3, transparent 50%);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+    @keyframes twinkle { from { opacity: 0.30; } to { opacity: 0.70; } }
+
+    a { color: var(--accent-pink); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- 顶部导航 ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(26, 10, 18, 0.65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-weight: 800; font-size: 18px;
+      background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-dim); font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ---------- 通用容器 ---------- */
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    section { padding: 80px 0; position: relative; z-index: 1; }
+    .section-title {
+      font-size: 28px; font-weight: 800;
+      margin: 0 0 8px; letter-spacing: 1px;
+      background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange), var(--accent-gold));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .section-sub { color: var(--text-dim); margin: 0 0 32px; font-size: 14px; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: 92vh;
+      display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+      text-align: left; padding: 80px 80px;
+      position: relative;
+    }
+    .hero-glow {
+      position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,140,90,0.40) 0%, transparent 60%);
+      filter: blur(40px); z-index: 0;
+    }
+    .hero-name {
+      font-size: clamp(40px, 7vw, 72px); font-weight: 900;
+      margin: 36px 0 12px; letter-spacing: 4px;
+      background: linear-gradient(90deg, #fff 0%, var(--accent-pink) 50%, var(--accent-orange) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      opacity: 0.7;
+      z-index: 1;
+    }
+    .hero-tagline {
+      color: var(--text-dim); font-size: 16px; max-width: 640px; z-index: 1;
+      opacity: 0.65;
+    }
+    .hero-tagline .fan-name { color: var(--accent-gold); font-weight: 700; }
+    .hero-cta {
+      margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-start; z-index: 1;
+    }
+    .btn {
+      display: inline-block; padding: 12px 26px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid var(--border);
+      background: var(--card); color: var(--text);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--card-strong); text-decoration: none; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+      border-color: transparent; color: white;
+    }
+
+    /* Hero CTA 专属按钮（橙粉中深色调）— 已废弃，Hero 按钮改回 .btn-primary */
+
+    /* ---------- 简介 ---------- */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+      backdrop-filter: blur(8px);
+    }
+    .info-list { list-style: none; padding: 0; margin: 0; }
+    .info-list li {
+      display: flex; justify-content: space-between; padding: 12px 0;
+      border-bottom: 1px dashed var(--border); font-size: 15px; gap: 12px;
+    }
+    .info-list li:last-child { border-bottom: none; }
+    .info-list .label { color: var(--text-dim); flex-shrink: 0; }
+    .info-list .value { color: var(--text); font-weight: 500; text-align: right; }
+    .info-list .value.hl { color: var(--accent-gold); font-weight: 700; }
+
+    /* ---------- 时间线 ---------- */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px;
+      width: 2px; background: linear-gradient(180deg, var(--accent-pink), var(--accent-orange), transparent);
+    }
+    .tl-item { position: relative; margin-bottom: 28px; }
+    .tl-item::before {
+      content: ""; position: absolute; left: -27px; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--accent-pink); box-shadow: 0 0 0 4px rgba(255,107,157,0.2);
+    }
+    .tl-item.highlight::before { background: var(--accent-orange); box-shadow: 0 0 0 4px rgba(255,140,90,0.25); }
+    .tl-year { color: var(--accent-gold); font-weight: 700; font-size: 14px; }
+    .tl-text { color: var(--text); margin-top: 4px; }
+
+    /* ---------- 作品（视频 embed） ---------- */
+    .works-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
+    }
+    .work-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .work-frame {
+      position: relative; width: 100%; aspect-ratio: 16 / 9;
+      background: #000; display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); font-size: 13px; text-align: center; padding: 16px;
+    }
+    .work-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .work-info { padding: 16px 18px 20px; }
+    .work-info h3 { margin: 0 0 6px; font-size: 16px; }
+    .work-info p { margin: 0; color: var(--text-dim); font-size: 13px; }
+
+    /* 作品区分块 */
+    .works-block { margin-bottom: 56px; }
+    .works-block:last-child { margin-bottom: 0; }
+    .works-block-title {
+      font-size: 20px; font-weight: 700;
+      margin: 0 0 18px; padding: 8px 0 8px 16px;
+      border-left: 4px solid var(--accent-pink);
+      background: linear-gradient(90deg, rgba(255,107,157,0.08), transparent 50%);
+      color: var(--text);
+      scroll-margin-top: 80px; /* 锚点跳转时不被 sticky 导航挡住 */
+    }
+    .works-block[data-cat="fan"] .works-block-title {
+      border-left-color: var(--accent-gold);
+      background: linear-gradient(90deg, rgba(255,196,128,0.12), transparent 50%);
+    }
+
+    /* 饭制产出：添加视频表单 */
+    .add-video-form {
+      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+      background: var(--card); border: 1px dashed var(--border);
+      border-radius: 12px; padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .add-video-form input {
+      flex: 1; min-width: 180px;
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 12px; border-radius: 8px;
+      font-family: inherit; font-size: 13px;
+    }
+    .add-video-form input::placeholder { color: var(--text-dim); }
+    .add-video-form .btn { white-space: nowrap; cursor: pointer; font-family: inherit; padding: 8px 18px; }
+    .add-video-form .add-tip {
+      flex-basis: 100%; font-size: 11px; color: var(--text-dim);
+      margin: 2px 0 0;
+    }
+
+    /* 平台选择器（segmented control 风格） */
+    .platform-picker {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      flex-basis: 100%; margin-bottom: 2px;
+    }
+    .platform-opt { position: relative; cursor: pointer; }
+    .platform-opt input {
+      position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0;
+    }
+    .platform-label {
+      display: inline-flex; align-items: center;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--card); border: 1px solid var(--border);
+      font-size: 12px; user-select: none;
+      transition: all 0.2s;
+    }
+    .platform-opt:hover .platform-label { background: var(--card-strong); }
+    .platform-opt input:checked + .platform-label {
+      color: white; border-color: transparent;
+    }
+    .platform-opt input[value="bilibili"]:checked    + .platform-label { background: #00aeec; }
+    .platform-opt input[value="douyin"]:checked      + .platform-label { background: linear-gradient(135deg, #fe2c55, #25f4ee); }
+    .platform-opt input[value="kuaishou"]:checked    + .platform-label { background: #ff5722; }
+    .platform-opt input[value="xiaohongshu"]:checked + .platform-label { background: linear-gradient(135deg, #ff2442, #ff7676); }
+
+    /* 卡片上的平台角标 */
+    .platform-badge {
+      position: absolute; top: 8px; left: 8px; z-index: 3;
+      padding: 3px 10px; border-radius: 4px;
+      font-size: 11px; font-weight: 700; color: white;
+      letter-spacing: 0.5px; backdrop-filter: blur(4px);
+    }
+    .platform-badge.bilibili     { background: rgba(0, 174, 236, 0.92); }
+    .platform-badge.douyin       { background: linear-gradient(135deg, rgba(254,44,85,0.92), rgba(37,244,238,0.85)); }
+    .platform-badge.kuaishou     { background: rgba(255, 87, 34, 0.92); }
+    .platform-badge.xiaohongshu  { background: linear-gradient(135deg, rgba(255,36,66,0.92), rgba(255,118,118,0.85)); }
+
+    /* 卡片底部的"在 X 打开"按钮 */
+    .platform-open {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 10px; margin-right: 6px;
+      padding: 4px 10px; border-radius: 6px;
+      background: var(--card-strong); color: var(--text-dim);
+      font-size: 12px; text-decoration: none;
+      border: 1px solid var(--border);
+      transition: color 0.2s, background 0.2s;
+    }
+    .platform-open:hover { color: var(--text); background: var(--card); text-decoration: none; }
+
+    /* 小红书占位封面（小红书禁止 iframe 嵌入） */
+    .xhs-frame { background: linear-gradient(135deg, #2a0a14, #1a0510); }
+    .xhs-cover {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(255,36,66,0.25), rgba(255,118,118,0.15));
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: white; font-size: 16px; font-weight: 700; text-align: center; padding: 16px;
+    }
+    .xhs-cover small { font-size: 11px; opacity: 0.75; font-weight: 400; margin-top: 6px; }
+
+    /* 本地视频：文件选择器（替代 URL 输入框时显示） */
+    .add-file-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 8px;
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+      cursor: pointer; font-size: 13px;
+      transition: background 0.2s, border-color 0.2s;
+      flex: 1; min-width: 220px; max-width: 360px;
+    }
+    .add-file-label:hover { background: var(--card-strong); }
+    .add-file-label input { display: none; }
+    .add-file-text { color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .add-file-label.has-file {
+      background: rgba(255, 196, 128, 0.10);
+      border-color: var(--accent-gold);
+    }
+    .add-file-label.has-file .add-file-text { color: var(--accent-gold); }
+
+    /* 卡片内的 <video> 元素 */
+    .work-frame video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain; background: #000; border: 0;
+    }
+
+    .works-empty {
+      grid-column: 1 / -1;
+      padding: 28px 20px; text-align: center; color: var(--text-dim);
+      font-size: 13px; background: var(--card); border-radius: 12px;
+      border: 1px dashed var(--border);
+    }
+    .fan-video-del {
+      margin-top: 10px;
+    }
+
+    /* ---------- 音乐（音频） ---------- */
+    .music-list { display: flex; flex-direction: column; gap: 16px; }
+    .music-item {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 20px;
+    }
+    .music-cover {
+      width: 64px; height: 64px; border-radius: 12px; flex: 0 0 64px;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: white; font-weight: 800;
+    }
+    .music-meta { flex: 1; min-width: 0; }
+    .music-meta h4 { margin: 0 0 4px; font-size: 15px; }
+    .music-meta .tag {
+      display: inline-block; padding: 1px 8px; border-radius: 4px;
+      background: linear-gradient(90deg, var(--accent-pink), var(--accent-orange));
+      color: white; font-size: 11px; font-weight: 600; margin-right: 6px;
+    }
+    .music-meta p { margin: 0; color: var(--text-dim); font-size: 12px; }
+    .music-meta audio { width: 100%; margin-top: 8px; }
+
+    /* QQ 音乐外链按钮 */
+    .music-actions { flex: 0 0 auto; }
+    .btn-qq {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 999px;
+      background: linear-gradient(135deg, #31c27c 0%, #1faa63 100%);
+      color: white; font-size: 13px; font-weight: 600;
+      white-space: nowrap; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    }
+    .btn-qq:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(49, 194, 124, 0.45);
+      filter: brightness(1.05);
+      text-decoration: none; color: white;
+    }
+    .qq-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 6px;
+      background: rgba(255,255,255,0.22);
+      font-size: 10px; font-weight: 800; letter-spacing: -0.5px;
+    }
+    .btn-qq.placeholder {
+      background: var(--card-strong);
+      color: var(--text-dim);
+      border-style: dashed;
+    }
+    .btn-qq.placeholder:hover { filter: none; box-shadow: none; transform: none; }
+
+    /* 网易云音乐外链按钮 */
+    .btn-163 {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 999px;
+      background: linear-gradient(135deg, #e72d2c 0%, #c20c0c 100%);
+      color: white; font-size: 13px; font-weight: 600;
+      white-space: nowrap; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    }
+    .btn-163:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(231, 45, 44, 0.45);
+      filter: brightness(1.05);
+      text-decoration: none; color: white;
+    }
+    .btn-163.placeholder {
+      background: var(--card-strong);
+      color: var(--text-dim);
+      border-style: dashed;
+    }
+    .btn-163.placeholder:hover { filter: none; box-shadow: none; transform: none; }
+
+    /* ---------- 图廊 ---------- */
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;
+    }
+    .gallery-item {
+      position: relative; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(135deg, var(--bg-2), var(--bg-1));
+      border: 1px solid var(--border); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-dim); font-size: 12px; text-align: center; padding: 8px;
+      transition: transform 0.25s;
+    }
+    .gallery-item:hover { transform: scale(1.03); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* 灯箱 */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center;
+      flex-direction: column; padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 92vw; max-height: 80vh; border-radius: 12px; box-shadow: var(--shadow); }
+    .lightbox-cap { color: var(--text-dim); margin-top: 12px; font-size: 13px; }
+    .lightbox-close, .lightbox-nav {
+      position: absolute; background: var(--card-strong); border: 1px solid var(--border);
+      color: var(--text); width: 44px; height: 44px; border-radius: 50%;
+      cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    }
+    .lightbox-close { top: 20px; right: 20px; }
+    .lightbox-nav.prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .lightbox-nav.next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+    /* ---------- 留言 ---------- */
+    .msg-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .msg-form input, .msg-form textarea {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); padding: 12px 14px; border-radius: 10px;
+      font-family: inherit; font-size: 14px; resize: vertical;
+    }
+    .msg-form input::placeholder, .msg-form textarea::placeholder { color: var(--text-dim); }
+    .msg-form textarea { min-height: 90px; }
+    .msg-list { display: flex; flex-direction: column; gap: 12px; }
+    .msg {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .msg-name { color: var(--accent-pink); font-weight: 700; font-size: 13px; }
+    .msg-text { margin-top: 4px; font-size: 14px; }
+
+    /* 留言：头部 / 时间 / 编辑删除按钮 / 编辑表单 / 顶部工具栏 */
+    .msg-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; flex-wrap: wrap; margin-bottom: 4px;
+    }
+    .msg-time { color: var(--text-dim); font-size: 11px; font-weight: 400; }
+    .msg-actions { display: flex; gap: 6px; margin-top: 10px; }
+    .msg-btn {
+      background: var(--card-strong); border: 1px solid var(--border);
+      color: var(--text-dim); padding: 4px 12px; border-radius: 999px;
+      font-size: 12px; cursor: pointer; font-family: inherit;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .msg-btn:hover { color: var(--text); background: var(--card); }
+    .msg-btn-del:hover { color: #ff8c8c; border-color: rgba(255,100,100,0.35); }
+
+    .msg-edit { display: flex; flex-direction: column; gap: 8px; }
+    .msg-edit input, .msg-edit textarea {
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 10px; border-radius: 8px;
+      font-family: inherit; font-size: 14px; width: 100%;
+      box-sizing: border-box;
+    }
+    .msg-edit textarea { min-height: 70px; resize: vertical; }
+    .msg-edit-actions { display: flex; gap: 8px; }
+    .msg-edit-actions .btn { padding: 6px 16px; font-size: 13px; }
+
+    .msg-toolbar {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      margin: 8px 0 24px; padding: 12px 16px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    }
+    .msg-toolbar-info { flex: 1; min-width: 200px; font-size: 12px; color: var(--text-dim); }
+    .msg-toolbar-btns { display: flex; gap: 8px; }
+    .msg-toolbar-btns .btn { padding: 6px 14px; font-size: 12px; cursor: pointer; }
+    .msg-toolbar-btns input[type=file] { display: none; }
+
+    /* ---------- 页脚 + 使用说明 ---------- */
+    footer {
+      padding: 60px 0 40px; border-top: 1px solid var(--border);
+      color: var(--text-dim); font-size: 13px; position: relative; z-index: 1;
+    }
+    footer h3 { color: var(--text); }
+    footer code {
+      background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* 占位标记（醒目但克制） */
+    .todo {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      background: rgba(255, 196, 128, 0.18); color: var(--accent-gold);
+      font-size: 12px; font-weight: 600; margin-left: 6px;
+    }
+
+    /* ---------- 互动榜：话题 / 回复 ---------- */
+    .new-topic-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .new-topic-form input, .new-topic-form textarea {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); padding: 12px 14px; border-radius: 10px;
+      font-family: inherit; font-size: 14px; resize: vertical;
+    }
+    .new-topic-form input::placeholder, .new-topic-form textarea::placeholder { color: var(--text-dim); }
+    .new-topic-form textarea { min-height: 80px; }
+    .new-topic-form .form-actions { display: flex; gap: 8px; }
+
+    .topics-list { display: flex; flex-direction: column; gap: 18px; }
+    .topic-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+      transition: border-color 0.2s;
+    }
+    .topic-card:hover { border-color: rgba(255, 107, 157, 0.3); }
+    .topic-head { margin-bottom: 10px; }
+    .topic-title {
+      font-size: 18px; font-weight: 700;
+      margin: 0 0 8px; color: var(--text);
+    }
+    .topic-meta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      color: var(--text-dim); font-size: 12px; align-items: center;
+    }
+    .topic-meta .topic-author { color: var(--accent-pink); font-weight: 600; }
+    .topic-meta .topic-replies-count {
+      background: rgba(255, 107, 157, 0.15);
+      color: var(--accent-pink);
+      padding: 1px 8px; border-radius: 999px; font-weight: 600;
+    }
+    .topic-content {
+      font-size: 14px; line-height: 1.7; color: var(--text);
+      margin: 8px 0 0; white-space: pre-wrap;
+    }
+    .topic-actions { display: flex; gap: 6px; margin-top: 12px; }
+    .topic-toggle {
+      margin-top: 14px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 6px 14px; border-radius: 999px;
+      font-size: 12px; cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    .topic-toggle:hover { color: var(--text); background: var(--card-strong); }
+    .topic-replies {
+      margin-top: 16px; padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+    .replies-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .reply {
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .reply-head {
+      display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
+      font-size: 12px; margin-bottom: 4px;
+    }
+    .reply-author { color: var(--accent-pink); font-weight: 600; }
+    .reply-time { color: var(--text-dim); }
+    .reply-content {
+      font-size: 14px; color: var(--text);
+      white-space: pre-wrap; margin: 0;
+    }
+    .reply-actions { margin-top: 6px; display: flex; gap: 6px; }
+    .reply-form { display: flex; flex-direction: column; gap: 8px; }
+    .reply-form input, .reply-form textarea {
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 12px; border-radius: 8px;
+      font-family: inherit; font-size: 13px;
+    }
+    .reply-form input::placeholder, .reply-form textarea::placeholder { color: var(--text-dim); }
+    .reply-form textarea { min-height: 60px; resize: vertical; }
+    .reply-form .btn { align-self: flex-start; padding: 6px 18px; font-size: 13px; cursor: pointer; font-family: inherit; }
+
+    /* 话题内联编辑 */
+    .topic-edit, .reply-edit { display: flex; flex-direction: column; gap: 8px; }
+    .topic-edit input, .topic-edit textarea,
+    .reply-edit input, .reply-edit textarea {
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 12px; border-radius: 8px;
+      font-family: inherit; font-size: 14px;
+    }
+    .topic-edit textarea, .reply-edit textarea { min-height: 70px; resize: vertical; }
+    .topic-edit .edit-actions, .reply-edit .edit-actions { display: flex; gap: 8px; }
+    .topic-edit .edit-actions .btn, .reply-edit .edit-actions .btn { padding: 6px 16px; font-size: 13px; cursor: pointer; font-family: inherit; }
+
+    .topics-empty {
+      text-align: center; padding: 40px 20px;
+      color: var(--text-dim); font-size: 14px;
+      background: var(--card); border: 1px dashed var(--border);
+      border-radius: var(--radius);
+    }
+
+    /* 互动榜：禁言横幅 + 屏蔽词规则 */
+    .mute-banner {
+      background: linear-gradient(90deg, rgba(255, 60, 60, 0.18), rgba(255, 60, 60, 0.06));
+      border: 1px solid rgba(255, 90, 90, 0.45);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      margin-bottom: 20px;
+      color: #ffc1c1;
+      font-size: 14px; font-weight: 600;
+    }
+    .mute-banner .mute-time { color: #ff8a8a; font-weight: 800; margin: 0 2px; }
+    .interact-rules {
+      flex-basis: 100%;
+      font-size: 11px; color: var(--text-dim);
+      margin-top: 6px;
+    }
+    .interact-rules a {
+      color: var(--accent-gold); text-decoration: underline;
+      cursor: pointer; margin-left: 4px;
+    }
+    .interact-rules a:hover { color: #ffe4a0; }
+    .form-locked {
+      opacity: 0.45;
+      pointer-events: none;
+      filter: grayscale(0.5);
+    }
+
+    /* ---------- 管理员面板（禁言管理） ---------- */
+    .admin-stats {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 20px;
+      margin-bottom: 16px;
+      font-size: 14px; color: var(--accent-gold); font-weight: 600;
+    }
+    .admin-list { display: flex; flex-direction: column; gap: 12px; }
+    .admin-muted-item {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 20px;
+    }
+    .admin-muted-item.active   { border-left: 4px solid #ff5050; }
+    .admin-muted-item.expired  { border-left: 4px solid var(--text-dim); opacity: 0.75; }
+    .admin-muted-info  { flex: 1; min-width: 220px; }
+    .admin-muted-name  { font-size: 16px; font-weight: 700; color: var(--text); }
+    .admin-muted-meta  { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+    .admin-muted-actions .btn { padding: 6px 16px; font-size: 13px; cursor: pointer; font-family: inherit; }
+    .admin-empty {
+      text-align: center; padding: 40px 20px; color: var(--text-dim);
+      background: var(--card); border: 1px dashed var(--border);
+      border-radius: var(--radius); font-size: 14px;
+    }
+    .admin-warn {
+      background: rgba(255, 196, 128, 0.10);
+      border: 1px solid rgba(255, 196, 128, 0.3);
+      border-radius: var(--radius);
+      padding: 12px 18px; margin-bottom: 16px;
+      color: var(--accent-gold); font-size: 13px;
+    }
+
+    /* 管理员面板：默认隐藏，输入正确密码后解除 */
+    #admin { display: none; }
+    #admin.unlocked { display: block; }
+    .admin-entry {
+      color: var(--text-dim);
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-left: 8px;
+    }
+    .admin-entry:hover { color: var(--accent-gold); }
+
+    /* ---------- 互动榜：登录 / 头像 / 表情 ---------- */
+    .session-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .session-form-title {
+      font-size: 14px; font-weight: 700; margin-bottom: 10px;
+      color: var(--accent-pink);
+    }
+    .session-form-row {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .session-form-row input {
+      flex: 1; min-width: 200px;
+      background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+      color: var(--text); padding: 10px 14px; border-radius: 10px;
+      font-family: inherit; font-size: 14px;
+    }
+    .session-form-tip {
+      font-size: 11px; color: var(--text-dim); margin-top: 8px;
+    }
+    .session-active {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .session-info { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 200px; }
+    .session-name { font-size: 15px; font-weight: 700; color: var(--text); }
+    .session-tip  { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+    .session-actions { display: flex; gap: 8px; }
+    .session-actions .btn { padding: 6px 14px; font-size: 13px; cursor: pointer; font-family: inherit; }
+
+    /* 头像 */
+    .avatar {
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
+      font-weight: 700; color: white; user-select: none;
+      vertical-align: middle;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .avatar-initials { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .avatar-sm { width: 28px; height: 28px; font-size: 12px; }
+    .avatar-md { width: 40px; height: 40px; font-size: 16px; }
+    .avatar-lg { width: 64px; height: 64px; font-size: 24px; }
+
+    /* 话题/回复里的作者块（头像 + 名字） */
+    .author-block {
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .author-block .author-name { color: var(--accent-pink); font-weight: 600; }
+
+    /* 表情触发按钮 + 弹层 */
+    .input-with-emoji { position: relative; display: flex; align-items: stretch; gap: 6px; }
+    .input-with-emoji input, .input-with-emoji textarea { flex: 1; }
+    .emoji-trigger {
+      width: 40px; flex-shrink: 0;
+      background: var(--card-strong); border: 1px solid var(--border);
+      color: var(--text-dim);
+      border-radius: 10px; cursor: pointer; font-size: 18px;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .emoji-trigger:hover { color: var(--accent-gold); background: var(--card); }
+    .emoji-picker {
+      background: var(--card-strong);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      max-width: 320px;
+    }
+    .emoji-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 4px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+    .emoji-item {
+      background: transparent; border: none;
+      width: 32px; height: 32px;
+      font-size: 20px; cursor: pointer; border-radius: 6px;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .emoji-item:hover { background: rgba(255,255,255,0.12); transform: scale(1.2); }
+
+    /* 入场动画 */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s, transform 0.7s; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 13px; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== 顶部导航 ===================== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="logo">✦ 穆祉丞 · 祉愿同纸</div>
+      <div class="nav-links">
+        <a href="#about">简介</a>
+        <a href="#timeline">时间线</a>
+        <a href="#works">作品</a>
+        <a href="#music">音乐</a>
+        <a href="#gallery">图集</a>
+        <a href="#interact">互动榜</a>
+        <a href="#messages">留言</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== Hero ===================== -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <!-- 头像区已移除（之前是 <div class="hero-avatar"></div>，下方自动消失"恩仔"小标） -->
+    <h1 class="hero-name">穆 祉 丞</h1>
+    <p class="hero-tagline">
+      2007.11.16 · 重庆 · TF_ING 全能偶像 · 粉丝名：<span class="fan-name">小纸团</span>
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#about">认识恩仔</a>
+      <a class="btn btn-primary" href="#works">观看作品</a>
+    </div>
+  </header>
+
+  <!-- ===================== 简介 ===================== -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">个人简介</h2>
+      <p class="section-sub">关于他的一切</p>
+
+      <div class="about-grid">
+        <div class="card">
+          <ul class="info-list">
+            <li><span class="label">中文名</span><span class="value">穆祉丞</span></li>
+            <li><span class="label">别名</span><span class="value">恩仔</span></li>
+            <li><span class="label">曾用名</span><span class="value">穆瑞恩</span></li>
+            <li><span class="label">民族</span><span class="value">汉族</span></li>
+            <li><span class="label">出生日期</span><span class="value">2007.11.16</span></li>
+            <li><span class="label">出生地</span><span class="value">重庆</span></li>
+            <li><span class="label">星座</span><span class="value">天蝎座</span></li>
+            <li><span class="label">身高</span><span class="value">180cm+</span></li>
+            <li><span class="label">经纪公司</span><span class="value">北京时代峰峻</span></li>
+            <li><span class="label">所属厂牌</span><span class="value">TF_ING</span></li>
+            <li><span class="label">特长</span><span class="value">舞蹈 / 唱歌</span></li>
+            <li><span class="label">爱好</span><span class="value">声乐、表演、吉他、架子鼓、旅游、运动</span></li>
+            <li><span class="label">粉丝名</span><span class="value hl">小纸团</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;">他的故事</h3>
+          <p>穆祉丞，2007 年 11 月 16 日出生于重庆，是北京时代峰峻旗下新生代全能偶像，TF_ING 厂牌成员。9 岁那年被星探发掘，由此踏上练习生之路——从训练营的反复打磨，到 TF 家族三代团综里的少年身影，再到以独立艺人身份站上个人演唱会舞台，他用不到十年时间完成了从"练习生"到"拥有个人巡演的艺人"的身份跃迁。</p>
+          <p>在音乐上，他既能驾驭《长大》《Better Now》这类团体作品，也能用《Holiday》《LOVE U SO MUCH》《Dreamin》《偷偷做个梦》展现属于自己的色彩。代表作《等待一切重来》上线 16 分钟评论量破百万、空降 QQ 音乐多个榜单日榜 TOP1，并于 2026 年 5 月获得腾讯音乐榜 30UNDER30 新锐组推选 TOP1。</p>
+          <p>舞台上，他也不止于歌手——参演短剧《三班，不一般》、电影《初次尝到寂寞》，登上《快手 616 真心夜》《王牌对 Penguin 第九季》《三个少年第三季》等节目，让"穆祉丞"这个名字被更多人看见。</p>
+          <p style="color:var(--text-dim);">他还是那个会在 2025 年初随 TF_ING 向西藏灾区捐赠 6000 双袜子的少年——舞台之外，温柔也在。✨</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 时间线 ===================== -->
+  <section id="timeline">
+    <div class="container">
+      <h2 class="section-title">成长时间线</h2>
+      <p class="section-sub">从练习生到个人演唱会</p>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2016.08</div>
+          <div class="tl-text">9 岁被星探发掘，入选 TF 家族训练营，正式成为练习生。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2019</div>
+          <div class="tl-text">6 月为丁程鑫演唱会伴舞后官宣亮相；10 月起参与 TF 家族三代团综及演出，正式出道。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2020 – 2023</div>
+          <div class="tl-text">参演短剧《三班，不一般》，登上《快手 616 真心夜》等大型晚会；发行《长大》《Better Now》等团体单曲；参加 TF 家族"登陆计划"巡回演唱会，积累舞台经验。</div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-year">2024.06</div>
+          <div class="tl-text">参加出道实录《登陆日》，演唱主题曲《等你的回答》。</div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-year">2024.08</div>
+          <div class="tl-text">在"登陆时刻"演唱会上以 solo 艺人身份获得出道资格。</div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-year">2024.09</div>
+          <div class="tl-text">正式加入厂牌 TF_ING，以独立艺人身份开启新征程。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2025.05</div>
+          <div class="tl-text">参演电影《初次尝到寂寞》。</div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-year">2025.07</div>
+          <div class="tl-text">陆续发布《Holiday》《LOVE U SO MUCH》《Dreamin》等个人单曲。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2025.09</div>
+          <div class="tl-text">参加《三个少年第三季》。</div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-year">2025.10</div>
+          <div class="tl-text">举办个人首场演唱会"自由"。</div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-year">2025.11</div>
+          <div class="tl-text">成功入选"星辰大海"青年演员优选计划。</div>
+        </div>
+        <div class="tl-item highlight">
+          <div class="tl-year">2026.05</div>
+          <div class="tl-text">代表作《等待一切重来》获腾讯音乐榜 30UNDER30 新锐组推选 TOP1，上线 16 分钟评论量破百万，空降 QQ 音乐多个榜单日榜 TOP1。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 作品（视频 embed） 5 大版块 ===================== -->
+  <section id="works">
+    <div class="container">
+      <h2 class="section-title">舞台 & 作品</h2>
+      <p class="section-sub">5 大版块 · 官方舞台 + 粉丝饭制产出 · 持续更新中</p>
+
+      <!-- ============ 1. 直拍合集（官方） ============ -->
+      <div class="works-block" data-cat="official" id="works-1">
+        <h3 class="works-block-title">🎤 1. 直拍合集</h3>
+        <div class="works-grid">
+          <!-- 视频嵌入：把 <iframe> 那行注释打开，把 BV 号填进去即可。 -->
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 《等待一切重来》 直拍 / 舞台 ]
+            </div>
+            <div class="work-info">
+              <h3>《等待一切重来》直拍</h3>
+              <p>代表作 · 2026.05 腾讯音乐榜 30UNDER30 新锐组 TOP1</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 《Holiday》 直拍 / MV ]
+            </div>
+            <div class="work-info">
+              <h3>《Holiday》直拍 / MV</h3>
+              <p>2025.07 · 个人单曲</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 《LOVE U SO MUCH》 直拍 / MV ]
+            </div>
+            <div class="work-info">
+              <h3>《LOVE U SO MUCH》直拍 / MV</h3>
+              <p>2025.07 · 个人单曲</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 《Dreamin》 直拍 / MV ]
+            </div>
+            <div class="work-info">
+              <h3>《Dreamin》直拍 / MV</h3>
+              <p>2025.07 · 个人单曲</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 2. 演唱会 / 巡演（官方） ============ -->
+      <div class="works-block" data-cat="official" id="works-2">
+        <h3 class="works-block-title">🎪 2. 演唱会 / 巡演现场</h3>
+        <div class="works-grid">
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 个人首场演唱会「自由」 现场 ]
+            </div>
+            <div class="work-info">
+              <h3>个人首场演唱会「自由」</h3>
+              <p>2025.10 · 从练习生到独当一面的里程碑之夜</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 「登陆时刻」演唱会 ]
+            </div>
+            <div class="work-info">
+              <h3>「登陆时刻」演唱会</h3>
+              <p>2024.08 · 以 solo 艺人身份获出道资格</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ TF 家族「登陆计划」巡回 ]
+            </div>
+            <div class="work-info">
+              <h3>「登陆计划」巡回演唱会</h3>
+              <p>2020 – 2023 · 团体时期舞台</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 3. 综艺 / 晚会（官方） ============ -->
+      <div class="works-block" data-cat="official" id="works-3">
+        <h3 class="works-block-title">📺 3. 综艺 / 晚会舞台</h3>
+        <div class="works-grid">
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 《王牌对 Penguin》第九季 舞台 ]
+            </div>
+            <div class="work-info">
+              <h3>《王牌对 Penguin》第九季</h3>
+              <p>综艺 · 经典舞台片段</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 《三个少年》第三季 ]
+            </div>
+            <div class="work-info">
+              <h3>《三个少年》第三季</h3>
+              <p>2025.09 · 综艺常驻</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-frame">
+              <!-- <iframe src="//player.bilibili.com/player.html?bvid=你的BV号&autoplay=0" allowfullscreen scrolling="no" frameborder="0"></iframe> -->
+              [ 《快手 616 真心夜》 舞台 ]
+            </div>
+            <div class="work-info">
+              <h3>《快手 616 真心夜》</h3>
+              <p>大型晚会 · 团时期舞台</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ 4. 饭制 MV / 混剪（饭制） ============ -->
+      <div class="works-block" data-cat="fan" id="works-4">
+        <h3 class="works-block-title">🎬 4. 饭制 MV / 混剪</h3>
+        <form class="add-video-form" data-block="fan-mv" autocomplete="off">
+          <div class="platform-picker">
+            <label class="platform-opt"><input type="radio" name="platform-fan-mv" value="bilibili" checked /><span class="platform-label">📺 B 站</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-mv" value="douyin" /><span class="platform-label">🎵 抖音</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-mv" value="kuaishou" /><span class="platform-label">⚡ 快手</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-mv" value="xiaohongshu" /><span class="platform-label">📕 小红书</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-mv" value="local" /><span class="platform-label">📁 本地</span></label>
+          </div>
+          <input type="text" class="add-url" placeholder="B 站 BV 号（如 BV1xx411c7mD）或含 BV 的完整 URL" required />
+          <label class="add-file-label" style="display:none;">
+            <input type="file" class="add-file" accept="video/mp4,video/webm,video/ogg,video/quicktime,video/*" />
+            <span class="add-file-text">📁 选择本地视频文件（mp4/webm/mov…）</span>
+          </label>
+          <input type="text" class="add-title" placeholder="标题（可选）" maxlength="40" />
+          <button type="submit" class="btn btn-primary">➕ 添加视频</button>
+          <div class="add-tip">💡 4 个平台 URL + 本地文件都支持；本地视频用浏览器 IndexedDB 存储，<strong>建议单个 ≤ 200 MB</strong>。数据仅在当前浏览器。</div>
+        </form>
+        <div class="works-grid" data-list="fan-mv">
+          <!-- JS 会渲染已添加的饭制视频 -->
+        </div>
+      </div>
+
+      <!-- ============ 5. 饭制 创意 / 应援（饭制） ============ -->
+      <div class="works-block" data-cat="fan" id="works-5">
+        <h3 class="works-block-title">✨ 5. 饭制 创意 / 应援</h3>
+        <form class="add-video-form" data-block="fan-creative" autocomplete="off">
+          <div class="platform-picker">
+            <label class="platform-opt"><input type="radio" name="platform-fan-creative" value="bilibili" checked /><span class="platform-label">📺 B 站</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-creative" value="douyin" /><span class="platform-label">🎵 抖音</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-creative" value="kuaishou" /><span class="platform-label">⚡ 快手</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-creative" value="xiaohongshu" /><span class="platform-label">📕 小红书</span></label>
+            <label class="platform-opt"><input type="radio" name="platform-fan-creative" value="local" /><span class="platform-label">📁 本地</span></label>
+          </div>
+          <input type="text" class="add-url" placeholder="B 站 BV 号（如 BV1xx411c7mD）或含 BV 的完整 URL" required />
+          <label class="add-file-label" style="display:none;">
+            <input type="file" class="add-file" accept="video/mp4,video/webm,video/ogg,video/quicktime,video/*" />
+            <span class="add-file-text">📁 选择本地视频文件（mp4/webm/mov…）</span>
+          </label>
+          <input type="text" class="add-title" placeholder="标题（可选）" maxlength="40" />
+          <button type="submit" class="btn btn-primary">➕ 添加视频</button>
+          <div class="add-tip">💡 4 个平台 URL + 本地文件都支持；本地视频用浏览器 IndexedDB 存储，<strong>建议单个 ≤ 200 MB</strong>。数据仅在当前浏览器。</div>
+        </form>
+        <div class="works-grid" data-list="fan-creative">
+          <!-- JS 会渲染已添加的饭制视频 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 音乐 ===================== -->
+  <section id="music">
+    <div class="container">
+      <h2 class="section-title">音乐作品</h2>
+      <p class="section-sub">单曲 / 团体曲 · 点击跳转 QQ 音乐 / 网易云收听</p>
+
+      <div class="music-list">
+        <!--
+          QQ 音乐 / 网易云都不支持第三方嵌入，所有按钮都是"外链跳转"模式
+          - QQ：c6.y.qq.com 短链会自动 302 跳转到官方歌曲页（按钮 .btn-qq，绿色）
+          - 网易云：163cn.tv 短链会自动 302 跳转到 music.163.com 歌曲页（按钮 .btn-163，红色）
+          带 .placeholder 类的按钮还是占位状态 → 拿到正式链接后：
+          1) 替换 href
+          2) 删掉 class 里的 placeholder
+        -->
+        <div class="music-item">
+          <div class="music-cover">★</div>
+          <div class="music-meta">
+            <h4><span class="tag">代表作</span>《等待一切重来》</h4>
+            <p>2026.05 获腾讯音乐榜 30UNDER30 新锐组 TOP1 · 上线 16 分钟评论破百万 · QQ 音乐多榜日榜 TOP1</p>
+          </div>
+          <div class="music-actions">
+            <a href="https://c6.y.qq.com/base/fcgi-bin/u?__=15Fys9Ug7IO2" target="_blank" rel="noopener" class="btn-qq" title="在 QQ 音乐收听《等待一切重来》">
+              <span class="qq-mark">QQ</span> 在 QQ 音乐收听
+            </a>
+          </div>
+        </div>
+
+        <div class="music-item">
+          <div class="music-cover">♡</div>
+          <div class="music-meta">
+            <h4><span class="tag">个人</span>《恋人未满》</h4>
+            <p>个人单曲</p>
+          </div>
+          <div class="music-actions">
+            <a href="https://c6.y.qq.com/base/fcgi-bin/u?__=pXmfBUUg7k2P" target="_blank" rel="noopener" class="btn-qq" title="在 QQ 音乐收听《恋人未满》">
+              <span class="qq-mark">QQ</span> 在 QQ 音乐收听
+            </a>
+          </div>
+        </div>
+
+        <div class="music-item">
+          <div class="music-cover">♪</div>
+          <div class="music-meta">
+            <h4><span class="tag">个人</span>《Holiday》</h4>
+            <p>2025.07 发布 · 个人单曲</p>
+          </div>
+          <div class="music-actions">
+            <a href="https://c6.y.qq.com/base/fcgi-bin/u?__=8b9QWlUg7Uwj" target="_blank" rel="noopener" class="btn-qq" title="在 QQ 音乐收听《Holiday》">
+              <span class="qq-mark">QQ</span> 在 QQ 音乐收听
+            </a>
+          </div>
+        </div>
+
+        <div class="music-item">
+          <div class="music-cover">♪</div>
+          <div class="music-meta">
+            <h4><span class="tag">个人</span>《LOVE U SO MUCH》</h4>
+            <p>2025.07 发布 · 个人单曲</p>
+          </div>
+          <div class="music-actions">
+            <a href="https://163cn.tv/8GeY5Qo" target="_blank" rel="noopener" class="btn-163" title="在网易云音乐收听《LOVE U SO MUCH》">
+              <span class="qq-mark">163</span> 在网易云收听
+            </a>
+          </div>
+        </div>
+
+        <div class="music-item">
+          <div class="music-cover">♪</div>
+          <div class="music-meta">
+            <h4><span class="tag">个人</span>《Dreamin》</h4>
+            <p>2025.07 发布 · 个人单曲</p>
+          </div>
+          <div class="music-actions">
+            <a href="https://c6.y.qq.com/base/fcgi-bin/u?__=H4cE5o2g7idu" target="_blank" rel="noopener" class="btn-qq" title="在 QQ 音乐收听《Dreamin》">
+              <span class="qq-mark">QQ</span> 在 QQ 音乐收听
+            </a>
+          </div>
+        </div>
+
+        <div class="music-item">
+          <div class="music-cover">♪</div>
+          <div class="music-meta">
+            <h4><span class="tag">个人</span>《偷偷做个梦》</h4>
+            <p>2025 个人单曲</p>
+          </div>
+          <div class="music-actions">
+            <a href="https://c6.y.qq.com/base/fcgi-bin/u?__=EweCp2Ug7piW" target="_blank" rel="noopener" class="btn-qq" title="在 QQ 音乐收听《偷偷做个梦》">
+              <span class="qq-mark">QQ</span> 在 QQ 音乐收听
+            </a>
+          </div>
+        </div>
+
+        <div class="music-item">
+          <div class="music-cover">♬</div>
+          <div class="music-meta">
+            <h4><span class="tag">团体</span>《长大》/《Better Now》/《等你的回答》</h4>
+            <p>TF 家族团体时期作品 · 见证他从练习生一路走来的舞台</p>
+          </div>
+          <div class="music-actions">
+            <a href="https://c6.y.qq.com/base/fcgi-bin/u?__=rYTLLw2g7X4I" target="_blank" rel="noopener" class="btn-qq" title="穆祉丞 QQ 音乐歌手主页">
+              <span class="qq-mark">QQ</span> 穆祉丞主页
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 图廊 ===================== -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">图集</h2>
+      <p class="section-sub">点击图片可放大查看 <span class="todo">替换 src 为你的图片 URL</span></p>
+
+      <div class="gallery">
+        <div class="gallery-item" data-caption="个人写真"><img src="" alt="个人写真" style="display:none;">个人写真</div>
+        <div class="gallery-item" data-caption="杂志大片"><img src="" alt="杂志大片" style="display:none;">杂志大片</div>
+        <div class="gallery-item" data-caption="舞台高光"><img src="" alt="舞台高光" style="display:none;">舞台高光</div>
+        <div class="gallery-item" data-caption="演唱会「自由」现场"><img src="" alt="演唱会「自由」现场" style="display:none;">演唱会「自由」</div>
+        <div class="gallery-item" data-caption="日常私服"><img src="" alt="日常私服" style="display:none;">日常私服</div>
+        <div class="gallery-item" data-caption="TF_ING 团体合照"><img src="" alt="TF_ING 团体合照" style="display:none;">TF_ING 团体</div>
+        <div class="gallery-item" data-caption="综艺《三个少年》截图"><img src="" alt="综艺截图" style="display:none;">综艺截图</div>
+        <div class="gallery-item" data-caption="电影《初次尝到寂寞》剧照"><img src="" alt="电影剧照" style="display:none;">电影剧照</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 荣誉 ===================== -->
+  <section id="honors">
+    <div class="container">
+      <h2 class="section-title">荣誉 & 公益</h2>
+      <p class="section-sub">舞台之外的少年</p>
+      <div class="works-grid">
+        <div class="card">
+          <h3 style="margin-top:0;">🏆 荣誉</h3>
+          <ul class="info-list">
+            <li><span class="label">2019</span><span class="value">重庆海昌小小旅行家总决赛 第二名</span></li>
+            <li><span class="label">2025.11</span><span class="value">入选"星辰大海"青年演员优选计划</span></li>
+            <li><span class="label">2026.05</span><span class="value hl">腾讯音乐榜 30UNDER30 新锐组推选 TOP1</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;">💛 公益</h3>
+          <ul class="info-list">
+            <li><span class="label">2025.01</span><span class="value">随 TF_ING 向西藏灾区捐赠 6000 双袜子</span></li>
+            <li><span class="label" style="color:var(--text-dim);">…</span><span class="value" style="color:var(--text-dim);">持续更新中</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 留言 ===================== -->
+  <section id="messages">
+    <div class="container">
+      <h2 class="section-title">小纸团留言板</h2>
+      <p class="section-sub">说给恩仔的话 · 所有人可见 · 长久保存（记得定期导出 JSON 备份）</p>
+
+      <form class="msg-form" id="msgForm">
+        <input type="text" id="msgName" placeholder="你的昵称（如：小纸团·小米）" required maxlength="20" />
+        <textarea id="msgText" placeholder="写一句想对恩仔说的话..." required maxlength="200"></textarea>
+        <div><button class="btn btn-primary" type="submit">发送</button></div>
+      </form>
+
+      <div class="msg-toolbar">
+        <div class="msg-toolbar-info" id="msgInfo">📦 加载中...</div>
+        <div class="msg-toolbar-btns">
+          <button class="btn" id="btnExport" type="button">⬇ 导出 JSON</button>
+          <label class="btn" for="fileImport">⬆ 导入 JSON</label>
+          <input type="file" id="fileImport" accept=".json,application/json" />
+        </div>
+      </div>
+
+      <div class="msg-list" id="msgList"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 互动榜 ===================== -->
+  <section id="interact">
+    <div class="container">
+      <h2 class="section-title">纸团互动榜</h2>
+      <p class="section-sub">小纸团们互助交流 · 提问 / 应援 / 分享 · 所有人可见</p>
+
+      <div class="session-card" id="sessionCard">
+        <!-- JS 会根据登录状态渲染：未登录显示表单，已登录显示资料卡 -->
+      </div>
+
+      <div class="mute-banner" id="muteBanner" style="display:none;">
+        ⛔ 你的账号 <strong id="muteBannerName"></strong> 已被禁言，到 <span class="mute-time" id="muteUntil"></span> 解除。在此期间无法发布新话题或回复。
+      </div>
+
+      <div class="msg-toolbar">
+        <div class="msg-toolbar-info" id="interactInfo">📦 加载中...</div>
+        <div class="msg-toolbar-btns">
+          <button class="btn btn-primary" id="btnToggleNewTopic" type="button">➕ 发起新话题</button>
+          <button class="btn" id="btnExportTopics" type="button">⬇ 导出 JSON</button>
+          <label class="btn" for="fileImportTopics">⬆ 导入 JSON</label>
+          <input type="file" id="fileImportTopics" accept=".json,application/json" />
+        </div>
+        <div class="interact-rules">
+          🛡️ 当前 <span id="bannedWordCount">0</span> 个屏蔽词 · 累计 3 次违规自动禁言 24 小时 · 解除由管理员操作
+          <a id="showBannedWords">[查看名单]</a>
+        </div>
+      </div>
+
+      <form class="new-topic-form" id="newTopicForm" style="display:none;" autocomplete="off">
+        <input type="text" id="newTopicName" placeholder="你的昵称（如：小纸团·小米）" maxlength="20" required />
+        <div class="input-with-emoji">
+          <input type="text" id="newTopicTitle" placeholder="话题标题（如：如何参加 11.16 生日应援？哪里能买到官方周边？）" maxlength="60" required />
+          <button type="button" class="emoji-trigger" aria-label="插入表情">😀</button>
+        </div>
+        <div class="input-with-emoji">
+          <textarea id="newTopicContent" placeholder="话题详情（点 😀 加表情）" maxlength="500"></textarea>
+          <button type="button" class="emoji-trigger" aria-label="插入表情">😀</button>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">📢 发布话题</button>
+          <button type="button" class="btn" id="btnCancelTopic">取消</button>
+        </div>
+      </form>
+
+      <div class="topics-list" id="topicsList"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 管理员面板（禁言管理） ===================== -->
+  <section id="admin">
+    <div class="container">
+      <h2 class="section-title">🛡️ 管理员面板</h2>
+      <p class="section-sub">禁言账号管理 · 只有你能解除禁言</p>
+
+      <div class="admin-warn">
+        ⚠️ <strong>关于权限：</strong>本面板用 localStorage 存储，<strong>任何打开此页面的人都能看到</strong>。要保护后台，请把网站部署到自己的服务器并加密码 / 鉴权；本地静态站无安全机制。
+      </div>
+
+      <div class="admin-stats" id="adminStats">📊 加载中...</div>
+
+      <div class="admin-list" id="adminList"></div>
+
+      <div class="admin-empty" id="adminEmpty" style="display:none;">
+        🎉 当前没有被禁言的账号
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 页脚 ===================== -->
+  <footer>
+    <div class="container">
+      <h3>📌 接下来如何完善这个站点</h3>
+      <ol>
+        <li>用记事本 / VSCode 打开 <code>index.html</code>，搜 <code>[ 在此粘贴 ]</code> 等占位文本替换。</li>
+        <li><strong>视频</strong>：到 B 站 / YouTube 找视频 → 点"分享 → 嵌入"→ 把 <code>iframe</code> 整段贴进对应 <code>.work-frame</code>。</li>
+        <li><strong>QQ 音乐</strong>：到 <code>y.qq.com</code> 搜歌名 → 进歌曲页 → 复制网址（形如 <code>y.qq.com/n/ryqq/songDetail/xxxxxx</code>）→ 把它粘进对应 <code>.btn-qq</code> 的 <code>href</code>，并把按钮的 <code>placeholder</code> 类删掉（变回绿色）。</li>
+        <li><strong>图片</strong>：把 <code>.gallery-item</code> 里的 <code>style="display:none;"</code> 删掉，再给 <code>img src</code> 填图包直链，灯箱就自动可用。</li>
+        <li><strong>头像</strong>：Hero 区头像已移除。如要加回来，在 hero 里加 <code>&lt;div class="hero-avatar"&gt;&lt;img src="头像URL"&gt;&lt;/div&gt;</code> 即可。</li>
+        <li>本地双击 <code>index.html</code> 即可在浏览器打开；想上线可以白嫖 GitHub Pages / Vercel。</li>
+      </ol>
+      <p style="margin-top:24px;">
+        ⚠️ <strong>版权提醒</strong>：QQ 音乐 / 网易云链接仅作为跳转到官方收听页的入口，音频文件版权归平台 / 唱片公司所有，请勿抓取直链放到本站。
+        留言板内容保存在当前浏览器（localStorage），不会随刷新/关闭丢失。点"导出 JSON"可永久备份；换设备时用"导入 JSON"恢复。每条留言的"编辑/删除"按钮只有发件人自己可见。
+      </p>
+      <p style="text-align:center; margin-top:32px; opacity:0.6;">
+        ✦ 祉愿同纸 · 恩仔的应援站 ✦
+        <a href="#" class="admin-entry" id="adminEntry" title="管理员入口（需密码）">🛡️ 管理员入口</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===================== 灯箱 ===================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lbClose" aria-label="关闭">✕</button>
+    <button class="lightbox-nav prev" id="lbPrev" aria-label="上一张">‹</button>
+    <img id="lbImg" alt="" />
+    <button class="lightbox-nav next" id="lbNext" aria-label="下一张">›</button>
+    <div class="lightbox-cap" id="lbCap"></div>
+  </div>
+
+  <script>
+    /* ============ 滚动入场动画 ============ */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(s => { s.classList.add('reveal'); io.observe(s); });
+
+    /* ============ 灯箱 ============ */
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+    let lbIndex = 0;
+    const realImages = [];
+
+    // 收集带图片的 gallery-item 作为可浏览图片
+    galleryItems.forEach((item) => {
+      const img = item.querySelector('img');
+      if (img && img.src && img.style.display !== 'none') {
+        realImages.push({ src: img.src, cap: item.dataset.caption || '' });
+        item.addEventListener('click', () => openLB(realImages.length - 1));
+      } else {
+        // 占位：点击只给轻微反馈
+        item.addEventListener('click', () => {
+          item.style.transform = 'scale(0.97)';
+          setTimeout(() => item.style.transform = '', 150);
+        });
+      }
+    });
+
+    function openLB(i) {
+      if (!realImages.length) return;
+      lbIndex = (i + realImages.length) % realImages.length;
+      const { src, cap } = realImages[lbIndex];
+      lbImg.src = src; lbImg.alt = cap; lbCap.textContent = cap;
+      lb.classList.add('open');
+    }
+    function closeLB() { lb.classList.remove('open'); }
+    document.getElementById('lbClose').onclick = closeLB;
+    document.getElementById('lbPrev').onclick = () => openLB(lbIndex - 1);
+    document.getElementById('lbNext').onclick = () => openLB(lbIndex + 1);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLB(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLB();
+      if (e.key === 'ArrowLeft') openLB(lbIndex - 1);
+      if (e.key === 'ArrowRight') openLB(lbIndex + 1);
+    });
+
+    /* ============ 留言板（localStorage + 增 / 删 / 改 + 导入导出） ============ */
+    const STORAGE_KEY = 'mzc_fan_messages_v1';
+    const OWNER_KEY   = 'mzc_fan_message_owners_v1';
+    const msgList    = document.getElementById('msgList');
+    const msgForm    = document.getElementById('msgForm');
+    const msgInfo    = document.getElementById('msgInfo');
+    const btnExport  = document.getElementById('btnExport');
+    const fileImport = document.getElementById('fileImport');
+
+    function uuid() {
+      return 'm' + Date.now().toString(36) + Math.random().toString(36).slice(2, 9);
+    }
+    function loadMsgs()    { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+    function saveMsgs(d)   { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }
+    function loadOwners()  { return JSON.parse(localStorage.getItem(OWNER_KEY)  || '[]'); }
+    function saveOwners(d) { localStorage.setItem(OWNER_KEY,  JSON.stringify(d)); }
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+    function fmtTime(t) {
+      const d = new Date(t);
+      return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate())
+        + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+    }
+
+    function render() {
+      const data    = loadMsgs();
+      const owners  = new Set(loadOwners());
+      msgList.innerHTML = '';
+      if (!data.length) {
+        const p = document.createElement('p');
+        p.style.cssText = 'color:var(--text-dim);font-size:13px;';
+        p.textContent = '还没有留言，来做第一个小纸团 ✦';
+        msgList.appendChild(p);
+      } else {
+        data.slice().reverse().forEach(m => {
+          const div = document.createElement('div');
+          div.className = 'msg';
+          div.dataset.id = m.id;
+          const isOwner = owners.has(m.id);
+          div.innerHTML =
+            '<div class="msg-head">' +
+              '<div class="msg-name"></div>' +
+              '<div class="msg-time"></div>' +
+            '</div>' +
+            '<div class="msg-text"></div>' +
+            (isOwner
+              ? '<div class="msg-actions">' +
+                  '<button class="msg-btn msg-btn-edit" type="button">编辑</button>' +
+                  '<button class="msg-btn msg-btn-del"  type="button">删除</button>' +
+                '</div>'
+              : '');
+          div.querySelector('.msg-name').textContent = m.name + (m.edited ? ' ✎' : '');
+          div.querySelector('.msg-time').textContent = fmtTime(m.t) + (m.edited ? '（已编辑）' : '');
+          div.querySelector('.msg-text').textContent = m.text;
+          if (isOwner) {
+            div.querySelector('.msg-btn-edit').addEventListener('click', () => enterEdit(div, m.id));
+            div.querySelector('.msg-btn-del' ).addEventListener('click', () => delMsg(m.id));
+          }
+          msgList.appendChild(div);
+        });
+      }
+      const total = data.length;
+      const mine  = data.filter(m => owners.has(m.id)).length;
+      msgInfo.textContent = '📦 共有 ' + total + ' 条留言 · 你贡献了 ' + mine
+        + ' 条 · 数据存于本地浏览器，建议定期点"导出 JSON"备份';
+    }
+
+    function enterEdit(div, id) {
+      const data = loadMsgs();
+      const m = data.find(x => x.id === id);
+      if (!m) return;
+      div.classList.add('msg-editing');
+      div.innerHTML =
+        '<div class="msg-edit">' +
+          '<input type="text" class="msg-edit-name" maxlength="20" />' +
+          '<textarea class="msg-edit-text" maxlength="200"></textarea>' +
+          '<div class="msg-edit-actions">' +
+            '<button class="btn btn-primary msg-btn-save"   type="button">保存</button>' +
+            '<button class="btn              msg-btn-cancel" type="button">取消</button>' +
+          '</div>' +
+        '</div>';
+      const nameInput = div.querySelector('.msg-edit-name');
+      const textInput = div.querySelector('.msg-edit-text');
+      nameInput.value = m.name;
+      textInput.value = m.text;
+      textInput.focus();
+      textInput.setSelectionRange(textInput.value.length, textInput.value.length);
+
+      function save() {
+        const newName = nameInput.value.trim();
+        const newText = textInput.value.trim();
+        if (!newName || !newText) { alert('昵称和留言内容不能为空'); return; }
+        const all = loadMsgs();
+        const idx = all.findIndex(x => x.id === id);
+        if (idx >= 0) {
+          all[idx].name   = newName;
+          all[idx].text   = newText;
+          all[idx].edited = fmtTime(Date.now());
+          saveMsgs(all);
+          render();
+        }
+      }
+      div.querySelector('.msg-btn-save' ).addEventListener('click', save);
+      div.querySelector('.msg-btn-cancel').addEventListener('click', render);
+      // 快捷键：Ctrl+Enter 保存，Esc 取消
+      textInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) save();
+        if (e.key === 'Escape') render();
+      });
+    }
+
+    function delMsg(id) {
+      if (!confirm('确定要删除这条留言吗？删除后无法恢复。')) return;
+      saveMsgs(loadMsgs().filter(m => m.id !== id));
+      saveOwners(loadOwners().filter(x => x !== id));
+      render();
+    }
+
+    msgForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('msgName').value.trim();
+      const text = document.getElementById('msgText').value.trim();
+      if (!name || !text) return;
+      const data = loadMsgs();
+      const newMsg = { id: uuid(), name: name, text: text, t: Date.now() };
+      data.push(newMsg);
+      saveMsgs(data);
+      const owners = loadOwners();
+      owners.push(newMsg.id);
+      saveOwners(owners);
+      msgForm.reset();
+      render();
+    });
+
+    // 导出 JSON 备份
+    btnExport.addEventListener('click', () => {
+      const data = loadMsgs();
+      if (!data.length) { alert('当前没有任何留言可以导出'); return; }
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'muzhicheng-messages-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    // 导入 JSON（按 ID 去重 + 按时间合并）
+    fileImport.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (!confirm('导入会与现有留言合并（按时间排序，重复 ID 会被跳过），继续吗？')) {
+        e.target.value = '';
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const incoming = JSON.parse(ev.target.result);
+          if (!Array.isArray(incoming)) throw new Error('文件内容不是留言数组');
+          const existing = loadMsgs();
+          const existingIds = new Set(existing.map(m => m.id));
+          const merged = existing.slice();
+          let added = 0;
+          incoming.forEach(m => {
+            if (!m || typeof m !== 'object') return;
+            if (!m.id)   m.id = uuid();
+            if (!m.name || !m.text) return;
+            if (!m.t)    m.t = Date.now();
+            if (!existingIds.has(m.id)) {
+              merged.push(m);
+              existingIds.add(m.id);
+              added++;
+            }
+          });
+          merged.sort((a, b) => a.t - b.t);
+          saveMsgs(merged);
+          render();
+          alert('导入完成：新增 ' + added + ' 条，跳过重复 ' + (incoming.length - added) + ' 条');
+        } catch (err) {
+          alert('导入失败：' + err.message);
+        }
+        e.target.value = '';
+      };
+      reader.readAsText(file);
+    });
+
+    // 跨标签页同步
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEY || e.key === OWNER_KEY) render();
+    });
+
+    render();
+
+    /* ============ 饭制视频管理（5 个版块中的 4、5，5 平台：4 平台 URL + 本地上传） ============ */
+    const FAN_VIDEO_KEY = 'mzc_fan_videos_v1';
+    const PLATFORM_INFO = {
+      bilibili:    { name: 'B 站',   emoji: '📺', idLabel: 'BV'  },
+      douyin:      { name: '抖音',   emoji: '🎵', idLabel: '视频 ID' },
+      kuaishou:    { name: '快手',   emoji: '⚡', idLabel: '视频 ID' },
+      xiaohongshu: { name: '小红书', emoji: '📕', idLabel: '笔记 ID' },
+      local:       { name: '本地',   emoji: '📁', idLabel: '视频文件' }
+    };
+    const PLACEHOLDER_MAP = {
+      bilibili:    'B 站 BV 号（如 BV1xx411c7mD）或含 BV 的完整 URL',
+      douyin:      '抖音视频 ID 或完整 URL（如 https://www.douyin.com/video/7123456789012345678）',
+      kuaishou:    '快手视频 ID 或完整 URL（如 https://www.kuaishou.com/short-video/3xfxxxx）',
+      xiaohongshu: '小红书笔记 ID 或完整 URL（如 https://www.xiaohongshu.com/explore/abc123...）',
+      local:       '请通过下方"选择文件"按钮上传本地视频'
+    };
+    function loadFanVideos()  { return JSON.parse(localStorage.getItem(FAN_VIDEO_KEY) || '{}'); }
+    function saveFanVideos(d){ localStorage.setItem(FAN_VIDEO_KEY, JSON.stringify(d)); }
+
+    // IndexedDB 包装：存本地视频 Blob（localStorage 5MB 不够装视频）
+    const IDB_NAME = 'mzc_fan_videos_db';
+    const IDB_STORE = 'videos';
+    const IDB_VERSION = 1;
+    let _idbPromise = null;
+    function openIDB() {
+      if (_idbPromise) return _idbPromise;
+      _idbPromise = new Promise((resolve, reject) => {
+        if (typeof indexedDB === 'undefined') { reject(new Error('浏览器不支持 IndexedDB')); return; }
+        const req = indexedDB.open(IDB_NAME, IDB_VERSION);
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE);
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror   = () => reject(req.error);
+      });
+      return _idbPromise;
+    }
+    function idbSet(key, blob) {
+      return openIDB().then(db => new Promise((resolve, reject) => {
+        const tx = db.transaction(IDB_STORE, 'readwrite');
+        tx.objectStore(IDB_STORE).put(blob, key);
+        tx.oncomplete = () => resolve();
+        tx.onerror    = () => reject(tx.error);
+      }));
+    }
+    function idbGet(key) {
+      return openIDB().then(db => new Promise((resolve, reject) => {
+        const tx = db.transaction(IDB_STORE, 'readonly');
+        const req = tx.objectStore(IDB_STORE).get(key);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror   = () => reject(req.error);
+      }));
+    }
+    function idbDelete(key) {
+      return openIDB().then(db => new Promise((resolve, reject) => {
+        const tx = db.transaction(IDB_STORE, 'readwrite');
+        tx.objectStore(IDB_STORE).delete(key);
+        tx.oncomplete = () => resolve();
+        tx.onerror    = () => reject(tx.error);
+      }));
+    }
+
+    // Object URL 跟踪：每次 re-render 前 revoke 旧的，避免内存泄漏
+    const objectURLs = new Map();
+    function revokeAllObjectURLs() {
+      objectURLs.forEach(url => URL.revokeObjectURL(url));
+      objectURLs.clear();
+    }
+
+    // 平台 → 视频 ID 解析（local 平台不需要这个）
+    function parseVideo(platform, input) {
+      const t = String(input || '').trim();
+      if (!t) return null;
+      switch (platform) {
+        case 'bilibili': {
+          if (/^BV[1-9A-HJ-NP-Za-km-z]+$/i.test(t)) return t;
+          const m = t.match(/BV([1-9A-HJ-NP-Za-km-z]+)/i);
+          return m ? 'BV' + m[1] : null;
+        }
+        case 'douyin': {
+          if (/^\d{15,22}$/.test(t)) return t;
+          const m = t.match(/douyin\.com\/video\/(\d{15,22})/);
+          return m ? m[1] : null;
+        }
+        case 'kuaishou': {
+          if (/^[A-Za-z0-9_-]{6,30}$/.test(t)) return t;
+          const m = t.match(/kuaishou\.com\/short-video\/([A-Za-z0-9_-]+)/);
+          return m ? m[1] : null;
+        }
+        case 'xiaohongshu': {
+          let m = t.match(/xiaohongshu\.com\/(?:explore|discovery\/item)\/([A-Za-z0-9_-]+)/);
+          if (m) return m[1];
+          if (/^[A-Za-z0-9_-]{16,40}$/.test(t)) return t;
+          return null;
+        }
+        case 'local': return null;
+      }
+      return null;
+    }
+    function buildPlatformUrl(platform, id) {
+      switch (platform) {
+        case 'bilibili':    return 'https://www.bilibili.com/video/' + id;
+        case 'douyin':      return 'https://www.douyin.com/video/' + id;
+        case 'kuaishou':    return 'https://www.kuaishou.com/short-video/' + id;
+        case 'xiaohongshu': return 'https://www.xiaohongshu.com/explore/' + id;
+      }
+      return '#';
+    }
+    function buildEmbedUrl(platform, id) {
+      switch (platform) {
+        case 'bilibili':    return '//player.bilibili.com/player.html?bvid=' + id + '&autoplay=0';
+        case 'douyin':      return 'https://www.douyin.com/embed/' + id;
+        case 'kuaishou':    return 'https://www.kuaishou.com/short-video/' + id + '?embed=true';
+      }
+      return null;  // 本地和小红书不用 iframe
+    }
+    function pad2(n){ return n < 10 ? '0' + n : '' + n; }
+    function fmtDate(t) {
+      const d = new Date(t);
+      return d.getFullYear() + '-' + pad2(d.getMonth()+1) + '-' + pad2(d.getDate());
+    }
+    function fmtSize(bytes) {
+      if (!bytes) return '0 B';
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      if (bytes < 1024 * 1024 * 1024) return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+      return (bytes / 1024 / 1024 / 1024).toFixed(2) + ' GB';
+    }
+    function migrate(v) {
+      if (v && v.bvid && !v.platform) {
+        return Object.assign({}, v, { platform: 'bilibili', videoId: v.bvid });
+      }
+      return v;
+    }
+
+    function renderFanBlocks() {
+      const data = loadFanVideos();
+      revokeAllObjectURLs();
+      document.querySelectorAll('.works-grid[data-list]').forEach(grid => {
+        const block = grid.dataset.list;
+        const raw = (data[block] || []).map(migrate);
+        const videos = raw.slice().reverse();
+        grid.innerHTML = '';
+        if (!videos.length) {
+          const empty = document.createElement('div');
+          empty.className = 'works-empty';
+          empty.textContent = '✨ 还没有饭制视频 · 用上方表单添加第一个吧';
+          grid.appendChild(empty);
+          return;
+        }
+        videos.forEach(v => {
+          const platform = v.platform || 'bilibili';
+          const id = v.videoId || v.bvid || '';
+          const info = PLATFORM_INFO[platform] || { name: platform, emoji: '🔗' };
+          const openUrl  = buildPlatformUrl(platform, id);
+          const embedUrl = buildEmbedUrl(platform, id);
+
+          const card = document.createElement('div');
+          card.className = 'work-card';
+
+          // 视频区
+          let frameHtml;
+          if (platform === 'local') {
+            // 本地：留空 <video>，src 由异步加载
+            frameHtml =
+              '<div class="work-frame">' +
+                '<span class="platform-badge local">' + info.emoji + ' ' + info.name + '</span>' +
+                '<video controls preload="metadata" playsinline></video>' +
+              '</div>';
+          } else if (embedUrl) {
+            frameHtml =
+              '<div class="work-frame">' +
+                '<span class="platform-badge ' + platform + '">' + info.emoji + ' ' + info.name + '</span>' +
+                '<iframe src="' + embedUrl + '" allowfullscreen scrolling="no" frameborder="0"></iframe>' +
+              '</div>';
+          } else {
+            // 小红书：占位封面 + 跳转
+            frameHtml =
+              '<div class="work-frame xhs-frame">' +
+                '<span class="platform-badge xiaohongshu">' + info.emoji + ' ' + info.name + '</span>' +
+                '<div class="xhs-cover">' +
+                  '<div>📕 ' + info.name + '</div>' +
+                  '<small>点击下方"在小红书查看"打开原文</small>' +
+                '</div>' +
+              '</div>';
+          }
+
+          // work-info 区域：本地/小红书不显示"在 X 打开"按钮
+          const showOpen = (platform !== 'local' && platform !== 'xiaohongshu');
+          card.innerHTML = frameHtml +
+            '<div class="work-info">' +
+              '<h3></h3>' +
+              '<p></p>' +
+              (showOpen ? '<a class="platform-open" target="_blank" rel="noopener">🔗 在 ' + info.name + ' 打开</a>' : '') +
+              '<button class="msg-btn msg-btn-del fan-video-del" type="button">删除</button>' +
+            '</div>';
+
+          // 标题 & 描述
+          if (v.title) {
+            card.querySelector('h3').textContent = v.title;
+          } else if (platform === 'local') {
+            card.querySelector('h3').textContent = '本地视频 · ' + (v.filename || id);
+          } else {
+            card.querySelector('h3').textContent = info.name + ' · ' + id;
+          }
+          if (platform === 'local') {
+            card.querySelector('p').textContent =
+              (v.filename || id) + ' · ' + fmtSize(v.size || 0) + ' · 添加于 ' + fmtDate(v.t);
+          } else {
+            const label = (PLATFORM_INFO[platform] || {}).idLabel || 'ID';
+            card.querySelector('p').textContent = label + ' ' + id + ' · 添加于 ' + fmtDate(v.t);
+          }
+          if (showOpen) card.querySelector('.platform-open').href = openUrl;
+
+          // 删除按钮
+          card.querySelector('.fan-video-del').addEventListener('click', async () => {
+            if (!confirm('确定要删除这条饭制视频吗？')) return;
+            if (v.platform === 'local') {
+              try { await idbDelete(v.videoId); } catch (e) { /* 容忍 IDB 失败 */ }
+            }
+            const d = loadFanVideos();
+            d[block] = (d[block] || []).filter(x => x.id !== v.id);
+            saveFanVideos(d);
+            renderFanBlocks();
+          });
+
+          grid.appendChild(card);
+
+          // 异步加载本地视频
+          if (platform === 'local') {
+            idbGet(v.videoId).then(blob => {
+              if (blob) {
+                const url = URL.createObjectURL(blob);
+                objectURLs.set(v.id, url);
+                const video = card.querySelector('video');
+                if (video) video.src = url;
+              } else {
+                // 文件丢失
+                const frame = card.querySelector('.work-frame');
+                if (frame) {
+                  frame.innerHTML =
+                    '<span class="platform-badge local">📁 本地</span>' +
+                    '<div class="xhs-cover"><div>⚠️ 视频文件丢失</div>' +
+                    '<small>可能浏览器数据被清理了 · 重新上传即可</small></div>';
+                }
+              }
+            }).catch(() => { /* 容忍 IDB 失败 */ });
+          }
+        });
+      });
+    }
+
+    // 表单逻辑
+    document.querySelectorAll('.add-video-form').forEach(form => {
+      const urlInput   = form.querySelector('.add-url');
+      const fileLabel  = form.querySelector('.add-file-label');
+      const fileInput  = form.querySelector('.add-file');
+      const fileText   = fileLabel ? fileLabel.querySelector('.add-file-text') : null;
+      const titleInput = form.querySelector('.add-title');
+
+      // 文件选择后显示文件名 + 大小
+      if (fileInput) {
+        fileInput.addEventListener('change', () => {
+          if (fileInput.files && fileInput.files[0]) {
+            const f = fileInput.files[0];
+            fileLabel.classList.add('has-file');
+            fileText.textContent = '✓ ' + f.name + ' · ' + fmtSize(f.size);
+          } else {
+            fileLabel.classList.remove('has-file');
+            fileText.textContent = '📁 选择本地视频文件（mp4/webm/mov…）';
+          }
+        });
+      }
+
+      // 平台切换：URL 输入框 / 文件选择器二选一
+      function applyPlatformUI(platform) {
+        const isLocal = platform === 'local';
+        if (urlInput) {
+          urlInput.style.display = isLocal ? 'none' : '';
+          urlInput.required = !isLocal;
+          if (isLocal) urlInput.value = '';
+        }
+        if (fileLabel) {
+          fileLabel.style.display = isLocal ? '' : 'none';
+        }
+        if (fileInput) {
+          fileInput.required = isLocal;
+          if (!isLocal) {
+            fileInput.value = '';
+            fileLabel.classList.remove('has-file');
+            if (fileText) fileText.textContent = '📁 选择本地视频文件（mp4/webm/mov…）';
+          }
+        }
+        if (urlInput) urlInput.placeholder = PLACEHOLDER_MAP[platform] || urlInput.placeholder;
+      }
+
+      form.querySelectorAll('input[type=radio][name^="platform-"]').forEach(radio => {
+        radio.addEventListener('change', () => applyPlatformUI(radio.value));
+      });
+
+      // 监听 form.reset（点击 reset 按钮或 JS 调用 form.reset()）
+      form.addEventListener('reset', () => {
+        setTimeout(() => {
+          const checked = form.querySelector('input[type=radio][name^="platform-"]:checked');
+          applyPlatformUI(checked ? checked.value : 'bilibili');
+        }, 0);
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const block = form.dataset.block;
+        const platformRadio = form.querySelector('input[type=radio][name^="platform-"]:checked');
+        const platform = platformRadio ? platformRadio.value : 'bilibili';
+
+        let videoId, origUrl = '', filename = '', size = 0;
+
+        if (platform === 'local') {
+          const file = fileInput.files && fileInput.files[0];
+          if (!file) { alert('请选择一个本地视频文件'); return; }
+          if (file.size > 200 * 1024 * 1024) {
+            if (!confirm('文件较大（' + fmtSize(file.size) + '），可能占用较多浏览器空间。是否继续？')) return;
+          }
+          filename = file.name;
+          size = file.size;
+          videoId = 'local_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+          try {
+            await idbSet(videoId, file);
+          } catch (err) {
+            alert('保存到本地失败：' + err.message + '\n（请检查浏览器是否允许网站使用存储空间）');
+            return;
+          }
+        } else {
+          videoId = parseVideo(platform, urlInput.value);
+          if (!videoId) {
+            const info = PLATFORM_INFO[platform] || { name: platform, idLabel: 'ID' };
+            alert('请输入有效的 ' + info.name + ' ' + info.idLabel + '，或含 ' + info.idLabel + ' 的完整 URL\n（短链需先在浏览器打开 → 复制完整地址）');
+            urlInput.focus();
+            return;
+          }
+          origUrl = urlInput.value.trim();
+        }
+
+        const data = loadFanVideos();
+        if (!data[block]) data[block] = [];
+        data[block].push({
+          id:       'fv' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+          platform: platform,
+          videoId:  videoId,
+          title:    titleInput.value.trim(),
+          origUrl:  origUrl,
+          filename: filename,
+          size:     size,
+          t:        Date.now()
+        });
+        saveFanVideos(data);
+        form.reset();
+        renderFanBlocks();
+        // 滚到刚添加的视频位置
+        setTimeout(() => {
+          const grid = document.querySelector('.works-grid[data-list="' + block + '"]');
+          if (grid) {
+            const firstCard = grid.querySelector('.work-card');
+            if (firstCard) firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 50);
+      });
+    });
+
+    // 跨标签页同步（仅同步元数据；视频 Blob 在 IndexedDB 里）
+    window.addEventListener('storage', (e) => {
+      if (e.key === FAN_VIDEO_KEY) renderFanBlocks();
+    });
+
+    renderFanBlocks();
+
+    /* ============ 互动榜管理（话题 + 回复 + 增删改 + 导入导出） ============ */
+    const TOPIC_KEY       = 'mzc_fan_topics_v1';
+    const TOPIC_OWNER_KEY = 'mzc_fan_topic_owners_v1';
+    function loadTopics()      { return JSON.parse(localStorage.getItem(TOPIC_KEY) || '[]'); }
+    function saveTopics(d)     { localStorage.setItem(TOPIC_KEY, JSON.stringify(d)); }
+    function loadTopicOwners() { return JSON.parse(localStorage.getItem(TOPIC_OWNER_KEY) || '[]'); }
+    function saveTopicOwners(d){ localStorage.setItem(TOPIC_OWNER_KEY, JSON.stringify(d)); }
+    function genId(prefix)     { return prefix + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+
+    /* ============ 互动榜：登录 / 头像 / 表情 ============ */
+    const SESSION_KEY = 'mzc_fan_session_v1';
+    const EMOJI_LIST = [
+      '😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃',
+      '😉','😊','😇','🥰','😍','🤩','😘','😗','😚','😙',
+      '😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔',
+      '😐','😑','😶','😏','😒','🙄','😬','🤥','😌','😔',
+      '😪','🤤','😴','😷','🤒','🤕','🤢','🤮','🥵','🥶',
+      '❤️','🧡','💛','💚','💙','💜','🖤','🤍','🤎','💔',
+      '💕','💞','💓','💗','💖','💘','💝','💟','♥️','💌',
+      '✨','🎉','🎊','🎁','🎂','🎈','🎀','💐','🌹','🌸',
+      '👍','👎','👌','✌️','🤞','🤟','🤘','🤙','👈','👉',
+      '👆','👇','✋','🤚','👋','🤝','🙏','💪','👏','🙌'
+    ];
+    function loadSession()    { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); }
+    function saveSession(s)   { localStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
+    function clearSession()   { localStorage.removeItem(SESSION_KEY); }
+
+    function avatarHtml(avatar, name, size) {
+      size = size || 'sm';
+      if (avatar && (/^data:image/.test(avatar) || /^https?:\/\//.test(avatar))) {
+        return '<img class="avatar avatar-' + size + '" src="' + avatar + '" alt="" />';
+      }
+      const colors = ['#ff6b9d','#c06bff','#ff8c5a','#ffc480','#4ecdc4','#95e1d3','#f38181','#aa96da','#fcbad3','#a8e6cf','#ffb6b9','#fae3d9'];
+      let hash = 0;
+      for (let i = 0; i < (name || '?').length; i++) {
+        hash = (name || '?').charCodeAt(i) + ((hash << 5) - hash);
+      }
+      const color = colors[Math.abs(hash) % colors.length];
+      const initial = (name || '?').charAt(0).toUpperCase();
+      return '<div class="avatar avatar-initials avatar-' + size + '" style="background:' + color + ';">' + initial + '</div>';
+    }
+
+    function renderSessionCard() {
+      const card = document.getElementById('sessionCard');
+      if (!card) return;
+      const s = loadSession();
+      if (s) {
+        card.innerHTML =
+          '<div class="session-active">' +
+            '<div class="session-info">' +
+              '<div class="session-avatar" id="sessionAvatarSlot"></div>' +
+              '<div>' +
+                '<div class="session-name" id="sessionNameSlot"></div>' +
+                '<div class="session-tip">已登录 · 你的头像和名字会展示在话题/回复里</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="session-actions">' +
+              '<button class="btn" id="btnUploadAvatar" type="button" title="直接选本地图片">📁 上传头像</button>' +
+              '<button class="btn" id="btnChangeAvatar" type="button" title="字母头像 / 图片 URL">🔤 换方式</button>' +
+              '<button class="btn" id="btnLogout" type="button">退出</button>' +
+            '</div>' +
+          '</div>';
+        card.querySelector('#sessionAvatarSlot').innerHTML = avatarHtml(s.avatar, s.name, 'md');
+        card.querySelector('#sessionNameSlot').textContent = s.name;
+        card.querySelector('#btnUploadAvatar').addEventListener('click', uploadAvatar);
+        card.querySelector('#btnChangeAvatar').addEventListener('click', changeAvatar);
+        card.querySelector('#btnLogout').addEventListener('click', logout);
+      } else {
+        card.innerHTML =
+          '<form class="session-form" id="loginForm" autocomplete="off">' +
+            '<div class="session-form-title">🌸 登录你的纸团身份</div>' +
+            '<div class="session-form-row">' +
+              '<input type="text" id="loginName" placeholder="昵称（如：小纸团·小米）" maxlength="20" required />' +
+              '<button type="submit" class="btn btn-primary">登录</button>' +
+            '</div>' +
+            '<div class="session-form-tip">登录后你的名字和头像会自动展示在话题/回复里 · 不登录也可以匿名发</div>' +
+          '</form>';
+        card.querySelector('#loginForm').addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('loginName').value.trim();
+          if (!name) return;
+          saveSession({ name: name, avatar: null, t: Date.now() });
+          renderSessionCard();
+          prefillNamesFromSession();
+        });
+      }
+    }
+
+    function changeAvatar() {
+      const s = loadSession();
+      if (!s) return;
+      const choice = prompt(
+        '选择头像方式：\n\n' +
+        '  · 输入 "字母" → 自动字母头像（首字 + 随机色）\n' +
+        '  · 直接粘贴图片 URL（http:// 或 https:// 开头）\n\n' +
+        '（要上传本地图片？点资料卡上的"📁 上传头像"按钮更方便）\n\n' +
+        '输入其他内容 = 取消',
+        '字母'
+      );
+      if (choice === null) return;
+      const c = choice.trim();
+      if (c === '字母' || c === '1') {
+        s.avatar = null; saveSession(s);
+        renderSessionCard(); renderTopics();
+      } else if (/^https?:\/\//i.test(c) || c.startsWith('data:')) {
+        const img = new Image();
+        img.onload = () => { s.avatar = c; saveSession(s); renderSessionCard(); renderTopics(); };
+        img.onerror = () => alert('图片加载失败，请检查 URL');
+        img.src = c;
+      }
+    }
+
+    function uploadAvatar() {
+      const s = loadSession();
+      if (!s) return;
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        if (file.size > 2 * 1024 * 1024) {
+          alert('图片过大（' + Math.round(file.size / 1024) + ' KB），请选 ≤ 2 MB');
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          s.avatar = ev.target.result;
+          saveSession(s);
+          renderSessionCard();
+          renderTopics();
+        };
+        reader.readAsDataURL(file);
+      };
+      input.click();
+    }
+
+    function logout() {
+      if (!confirm('确定要退出登录吗？')) return;
+      clearSession();
+      renderSessionCard();
+      const nameInput = document.getElementById('newTopicName');
+      if (nameInput) nameInput.value = '';
+      document.querySelectorAll('.reply-name').forEach(inp => inp.value = '');
+    }
+
+    function prefillNamesFromSession() {
+      const s = loadSession();
+      if (!s) return;
+      const nameInput = document.getElementById('newTopicName');
+      if (nameInput && !nameInput.value) nameInput.value = s.name;
+      document.querySelectorAll('.reply-name').forEach(inp => {
+        if (!inp.value) inp.value = s.name;
+      });
+    }
+
+    // 表情选择器
+    let _emojiPicker = null;
+    let _emojiTarget = null;
+    function getEmojiPicker() {
+      if (_emojiPicker) return _emojiPicker;
+      const picker = document.createElement('div');
+      picker.id = 'emojiPicker';
+      picker.className = 'emoji-picker';
+      picker.style.display = 'none';
+      picker.innerHTML = '<div class="emoji-grid">' +
+        EMOJI_LIST.map(e => '<button type="button" class="emoji-item">' + e + '</button>').join('') +
+        '</div>';
+      picker.addEventListener('click', (e) => {
+        const btn = e.target.closest('.emoji-item');
+        if (!btn || !_emojiTarget) return;
+        insertAtCursor(_emojiTarget, btn.textContent);
+      });
+      document.body.appendChild(picker);
+      _emojiPicker = picker;
+      return picker;
+    }
+    function showEmojiPicker(target, triggerBtn) {
+      if (!target) return;
+      const picker = getEmojiPicker();
+      if (_emojiTarget === target && picker.style.display !== 'none') {
+        picker.style.display = 'none';
+        _emojiTarget = null;
+        return;
+      }
+      _emojiTarget = target;
+      const rect = triggerBtn.getBoundingClientRect();
+      const scrollY = window.scrollY || 0;
+      picker.style.position = 'absolute';
+      picker.style.left = Math.max(10, rect.left) + 'px';
+      picker.style.top  = (rect.bottom + scrollY + 6) + 'px';
+      picker.style.zIndex = '200';
+      picker.style.display = 'block';
+    }
+    function insertAtCursor(textarea, text) {
+      const start = textarea.selectionStart || 0;
+      const end   = textarea.selectionEnd || 0;
+      textarea.value = textarea.value.slice(0, start) + text + textarea.value.slice(end);
+      textarea.focus();
+      const np = start + text.length;
+      textarea.setSelectionRange(np, np);
+      textarea.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    // 表情触发按钮：全局事件委托
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.emoji-trigger');
+      if (!trigger) return;
+      e.stopPropagation();
+      const wrapper = trigger.closest('.input-with-emoji');
+      const target = wrapper ? wrapper.querySelector('input, textarea') : null;
+      if (target) showEmojiPicker(target, trigger);
+    });
+    // 点其他位置关闭
+    document.addEventListener('click', (e) => {
+      if (!_emojiPicker || _emojiPicker.style.display === 'none') return;
+      if (e.target.closest('.emoji-picker')) return;
+      if (e.target.closest('.emoji-trigger')) return;
+      _emojiPicker.style.display = 'none';
+      _emojiTarget = null;
+    });
+
+    /* ============ 互动榜：禁言系统（按账号） ============ */
+    const BANNED_KEY  = 'mzc_fan_banned_words_v1';
+    const MUTED_KEY   = 'mzc_fan_muted_accounts_v1';
+    const DEFAULT_BANNED_WORDS = [
+      '橹穆99', '豚', '王橹杰', 'lm',     // 用户指定
+      '傻逼', '草泥马', '他妈的', '操你妈', '死全家'  // 通用脏话
+    ];
+    const MAX_WARNINGS     = 3;
+    const MUTE_DURATION_MS = 24 * 60 * 60 * 1000;
+
+    function loadBannedWords() {
+      let w = JSON.parse(localStorage.getItem(BANNED_KEY) || 'null');
+      if (!Array.isArray(w) || !w.length) {
+        w = DEFAULT_BANNED_WORDS.slice();
+        saveBannedWords(w);
+        return w;
+      }
+      // 自动合并：DEFAULT 里有但本地没有的词自动补进去（方便后续加词）
+      let changed = false;
+      for (const dw of DEFAULT_BANNED_WORDS) {
+        if (w.indexOf(dw) < 0) { w.push(dw); changed = true; }
+      }
+      if (changed) saveBannedWords(w);
+      return w;
+    }
+    function saveBannedWords(w) { localStorage.setItem(BANNED_KEY, JSON.stringify(w)); }
+    function getBannedWords()    { return loadBannedWords(); }
+    function loadMutedAccounts() { return JSON.parse(localStorage.getItem(MUTED_KEY) || '[]'); }
+    function saveMutedAccounts(list) { localStorage.setItem(MUTED_KEY, JSON.stringify(list)); }
+
+    function checkBannedWords(text) {
+      const t = String(text || '');
+      for (const w of getBannedWords()) {
+        if (w && t.indexOf(w) >= 0) return w;
+      }
+      return null;
+    }
+
+    function getMutedAccount(name) {
+      return loadMutedAccounts().find(a => a.name === name) || null;
+    }
+    function isNameMuted(name) {
+      const a = getMutedAccount(name);
+      if (a && a.muteUntil > Date.now()) return a;
+      return null;
+    }
+    function recordViolation(name, bannedWord) {
+      const list = loadMutedAccounts();
+      let account = list.find(a => a.name === name);
+      if (!account) {
+        account = { name: name, warnCount: 0, muteUntil: 0, lastBannedWord: '', lastViolation: 0, history: [] };
+        list.push(account);
+      }
+      // 已在禁言中，不再累加
+      if (account.muteUntil > Date.now()) {
+        return { muted: true, account: account, newlyMuted: false };
+      }
+      account.warnCount += 1;
+      account.lastBannedWord = bannedWord;
+      account.lastViolation = Date.now();
+      if (!account.history) account.history = [];
+      account.history.push({ word: bannedWord, t: Date.now() });
+      let newlyMuted = false;
+      if (account.warnCount >= MAX_WARNINGS) {
+        account.muteUntil = Date.now() + MUTE_DURATION_MS;
+        newlyMuted = true;
+      }
+      saveMutedAccounts(list);
+      return { muted: account.muteUntil > Date.now(), account: account, newlyMuted: newlyMuted };
+    }
+    function unmuteAccount(name) {
+      const list = loadMutedAccounts();
+      const idx = list.findIndex(a => a.name === name);
+      if (idx >= 0) {
+        list[idx].muteUntil = 0;
+        list[idx].warnCount = 0;
+        saveMutedAccounts(list);
+      }
+    }
+
+    // 在发布前检查（返回 {ok, reason, ...}）
+    function validateSubmission(name, content) {
+      if (!name) return { ok: false, reason: 'noname' };
+      // 1) 先检查该账号是否已在禁言
+      const m = isNameMuted(name);
+      if (m) {
+        return { ok: false, reason: 'muted', account: m };
+      }
+      // 2) 再检查屏蔽词（名字 + 内容一起）
+      const fullText = (name || '') + ' ' + (content || '');
+      const bannedWord = checkBannedWords(fullText);
+      if (bannedWord) {
+        const result = recordViolation(name, bannedWord);
+        return { ok: false, reason: 'banned', word: bannedWord, account: result.account, newlyMuted: result.newlyMuted };
+      }
+      return { ok: true };
+    }
+
+    function showBannedWordsAlert() {
+      const words = getBannedWords();
+      alert('当前屏蔽词列表（共 ' + words.length + ' 个）：\n\n' +
+        words.map((w, i) => (i + 1) + '. ' + w).join('\n') +
+        '\n\n累计使用 3 次将自动禁言 24 小时，由管理员手动解除。');
+    }
+
+    function fmtDateTime(t) {
+      const d = new Date(t);
+      const p = n => n < 10 ? '0' + n : '' + n;
+      return d.getFullYear() + '-' + p(d.getMonth()+1) + '-' + p(d.getDate())
+        + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+    }
+
+    function updateMuteBanner() {
+      const banner = document.getElementById('muteBanner');
+      if (!banner) return;
+      const sess = loadSession();
+      if (!sess) { banner.style.display = 'none'; return; }
+      const m = isNameMuted(sess.name);
+      if (m) {
+        banner.style.display = '';
+        const n = banner.querySelector('#muteBannerName');
+        const u = banner.querySelector('#muteUntil');
+        if (n) n.textContent = sess.name;
+        if (u) u.textContent = fmtDateTime(m.muteUntil);
+      } else {
+        banner.style.display = 'none';
+      }
+    }
+
+    function renderAdminPanel() {
+      const stats  = document.getElementById('adminStats');
+      const listEl = document.getElementById('adminList');
+      const emptyEl = document.getElementById('adminEmpty');
+      if (!stats || !listEl) return;
+      const list = loadMutedAccounts();
+      const active  = list.filter(a => a.muteUntil > Date.now());
+      const expired = list.filter(a => a.muteUntil > 0 && a.muteUntil <= Date.now());
+      const totalViolations = list.reduce((s, a) => s + (a.history ? a.history.length : a.warnCount), 0);
+      stats.textContent = '📊 当前 ' + active.length + ' 个账号在禁言中 · ' + expired.length + ' 个已过期 · 累计 ' + totalViolations + ' 次违规';
+
+      if (!list.length) {
+        listEl.innerHTML = '';
+        emptyEl.style.display = '';
+        return;
+      }
+      emptyEl.style.display = 'none';
+      listEl.innerHTML = '';
+      // 排序：活跃禁言的优先（按到期时间近的在前），然后过期的（最近违规在前）
+      const sorted = list.slice().sort((a, b) => {
+        const aActive = a.muteUntil > Date.now();
+        const bActive = b.muteUntil > Date.now();
+        if (aActive && !bActive) return -1;
+        if (!aActive && bActive) return 1;
+        if (aActive && bActive) return a.muteUntil - b.muteUntil;
+        return b.lastViolation - a.lastViolation;
+      });
+      sorted.forEach(a => {
+        const isActive = a.muteUntil > Date.now();
+        const div = document.createElement('div');
+        div.className = 'admin-muted-item ' + (isActive ? 'active' : 'expired');
+        div.innerHTML =
+          '<div class="admin-muted-info">' +
+            '<div class="admin-muted-name"></div>' +
+            '<div class="admin-muted-meta"></div>' +
+          '</div>' +
+          '<div class="admin-muted-actions">' +
+            '<button class="btn btn-primary" data-action="unmute" type="button">✅ 解除禁言</button>' +
+          '</div>';
+        div.querySelector('.admin-muted-name').textContent = a.name + (isActive ? '  🚫 禁言中' : '  ✓ 已过期');
+        const meta = [];
+        meta.push('警告 ' + a.warnCount + '/' + MAX_WARNINGS);
+        if (a.lastBannedWord) meta.push('触发词: ' + a.lastBannedWord);
+        meta.push(isActive ? ('到期: ' + fmtDateTime(a.muteUntil)) : ('过期于: ' + fmtDateTime(a.muteUntil)));
+        meta.push('最后违规: ' + fmtDateTime(a.lastViolation || 0));
+        div.querySelector('.admin-muted-meta').textContent = meta.join(' · ');
+        div.querySelector('[data-action="unmute"]').addEventListener('click', () => {
+          if (confirm('确定要解除 "' + a.name + '" 的禁言吗？\n警告次数也会一起清零。')) {
+            unmuteAccount(a.name);
+            renderAdminPanel();
+            updateMuteBanner();
+          }
+        });
+        listEl.appendChild(div);
+      });
+    }
+
+    document.getElementById('showBannedWords').addEventListener('click', (e) => {
+      e.preventDefault();
+      showBannedWordsAlert();
+    });
+
+    function buildReplyEl(r, isOwner, topic) {
+      const div = document.createElement('div');
+      div.className = 'reply';
+      div.dataset.id = r.id;
+      div.innerHTML =
+        '<div class="reply-head">' +
+          '<div class="author-block">' +
+            '<span class="reply-author-avatar"></span>' +
+            '<span class="reply-author-name"></span>' +
+          '</div>' +
+          '<span class="reply-time"></span>' +
+        '</div>' +
+        '<p class="reply-content"></p>' +
+        (isOwner
+          ? '<div class="reply-actions">' +
+              '<button class="msg-btn msg-btn-edit" data-action="edit-reply" type="button">编辑</button>' +
+              '<button class="msg-btn msg-btn-del"  data-action="delete-reply" type="button">删除</button>' +
+            '</div>'
+          : '');
+      div.querySelector('.reply-author-avatar').innerHTML = avatarHtml(r.avatar, r.author, 'sm');
+      div.querySelector('.reply-author-name').textContent = r.author;
+      div.querySelector('.reply-time').textContent = fmtTime(r.t) + (r.edited ? '（已编辑）' : '');
+      div.querySelector('.reply-content').textContent = r.content;
+      if (isOwner) {
+        div.querySelector('[data-action="edit-reply"]').addEventListener('click', () => enterReplyEdit(div, topic.id, r.id));
+        div.querySelector('[data-action="delete-reply"]').addEventListener('click', () => deleteReply(topic.id, r.id));
+      }
+      return div;
+    }
+
+    function renderTopics() {
+      const topics = loadTopics().slice().reverse();  // 最新在最上面
+      const owners = new Set(loadTopicOwners());
+      const list = document.getElementById('topicsList');
+      list.innerHTML = '';
+
+      // 顶部信息栏
+      const totalTopics  = topics.length;
+      const totalReplies = topics.reduce((s, t) => s + (t.replies || []).length, 0);
+      const myTopics     = topics.filter(t => owners.has(t.id)).length;
+      const myReplies    = topics.reduce((s, t) =>
+        s + (t.replies || []).filter(r => owners.has(r.id)).length, 0);
+      document.getElementById('interactInfo').textContent =
+        '📦 共有 ' + totalTopics + ' 个话题 · ' + totalReplies + ' 条回复 · 你贡献了 ' + (myTopics + myReplies) + ' 条';
+
+      // 同步屏蔽词数量
+      const countEl = document.getElementById('bannedWordCount');
+      if (countEl) countEl.textContent = getBannedWords().length;
+
+      if (!topics.length) {
+        const empty = document.createElement('div');
+        empty.className = 'topics-empty';
+        empty.textContent = '✨ 还没有话题 · 点上方"➕ 发起新话题"开个场吧';
+        list.appendChild(empty);
+        return;
+      }
+
+      topics.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'topic-card';
+        card.dataset.id = t.id;
+        const isOwner = owners.has(t.id);
+        const replyCount = (t.replies || []).length;
+        const repliesLabel = replyCount > 0 ? ('展开 ' + replyCount + ' 条回复') : '添加回复';
+
+        card.innerHTML =
+          '<div class="topic-head">' +
+            '<div class="topic-title"></div>' +
+            '<div class="topic-meta">' +
+              '<div class="author-block">' +
+                '<span class="topic-author-avatar"></span>' +
+                '<span class="topic-author-name"></span>' +
+              '</div>' +
+              '<span class="topic-time"></span>' +
+              '<span class="topic-replies-count">💬 ' + replyCount + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="topic-content"></div>' +
+          (isOwner
+            ? '<div class="topic-actions">' +
+                '<button class="msg-btn msg-btn-edit" data-action="edit-topic" type="button">编辑</button>' +
+                '<button class="msg-btn msg-btn-del"  data-action="delete-topic" type="button">删除</button>' +
+              '</div>'
+            : '') +
+          '<button class="topic-toggle" data-action="toggle" type="button">💬 ' + repliesLabel + '</button>' +
+          '<div class="topic-replies" style="display:none;">' +
+            '<div class="replies-list"></div>' +
+            '<form class="reply-form" autocomplete="off">' +
+              '<input type="text" class="reply-name" placeholder="你的昵称" maxlength="20" required />' +
+              '<div class="input-with-emoji">' +
+                '<textarea class="reply-content" placeholder="回复内容... 点 😀 加表情" maxlength="300" required></textarea>' +
+                '<button type="button" class="emoji-trigger" aria-label="插入表情">😀</button>' +
+              '</div>' +
+              '<button type="submit" class="btn btn-primary">回复</button>' +
+            '</form>' +
+          '</div>';
+
+        card.querySelector('.topic-title').textContent = t.title;
+        card.querySelector('.topic-author-avatar').innerHTML = avatarHtml(t.avatar, t.author, 'sm');
+        card.querySelector('.topic-author-name').textContent = t.author;
+        card.querySelector('.topic-time').textContent = fmtTime(t.t) + (t.edited ? '（已编辑）' : '');
+        card.querySelector('.topic-content').textContent = t.content || '';
+
+        // 展开/收起
+        const repliesDiv = card.querySelector('.topic-replies');
+        const toggleBtn  = card.querySelector('[data-action="toggle"]');
+        toggleBtn.addEventListener('click', () => {
+          const open = repliesDiv.style.display !== 'none';
+          repliesDiv.style.display = open ? 'none' : '';
+          toggleBtn.textContent = open ? ('💬 ' + repliesLabel) : '🔼 收起回复';
+        });
+
+        // 回复列表
+        const repliesList = card.querySelector('.replies-list');
+        (t.replies || []).forEach(r => {
+          repliesList.appendChild(buildReplyEl(r, owners.has(r.id), t));
+        });
+
+        // 话题编辑 / 删除
+        if (isOwner) {
+          card.querySelector('[data-action="edit-topic"]').addEventListener('click', () => enterTopicEdit(card, t.id));
+          card.querySelector('[data-action="delete-topic"]').addEventListener('click', () => deleteTopic(t.id));
+        }
+
+        // 回复表单
+        const replyForm = card.querySelector('.reply-form');
+        // 预填昵称（如果已登录）
+        const sess0 = loadSession();
+        if (sess0) {
+          const nameInp = replyForm.querySelector('.reply-name');
+          if (nameInp && !nameInp.value) nameInp.value = sess0.name;
+        }
+        replyForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name    = replyForm.querySelector('.reply-name').value.trim();
+          const content = replyForm.querySelector('.reply-content').value.trim();
+          if (!name || !content) return;
+          // 禁言 / 屏蔽词检查
+          const check = validateSubmission(name, content);
+          if (!check.ok) {
+            if (check.reason === 'muted') {
+              alert('⛔ 你的账号 "' + name + '" 已被禁言，到 ' + fmtDateTime(check.account.muteUntil) + ' 解除。');
+            } else if (check.reason === 'banned') {
+              if (check.newlyMuted) {
+                alert('⛔ 你的账号 "' + name + '" 因多次使用不当词汇，已被自动禁言 24 小时（到 ' + fmtDateTime(check.account.muteUntil) + '）。\n请联系管理员解除。');
+                updateMuteBanner();
+              } else {
+                alert('⚠️ 内容包含不当词汇"' + check.word + '"，请修改后再试。\n\n已收到第 ' + check.account.warnCount + ' 次警告，累计 ' + MAX_WARNINGS + ' 次将被禁言 24 小时。');
+              }
+              renderAdminPanel();
+            }
+            return;
+          }
+          const sess = loadSession();
+          addReply(t.id, name, content, sess ? sess.avatar : null);
+        });
+
+        list.appendChild(card);
+      });
+    }
+
+    // 话题编辑
+    function enterTopicEdit(card, id) {
+      const topics = loadTopics();
+      const t = topics.find(x => x.id === id);
+      if (!t) return;
+      card.classList.add('topic-editing');
+      card.innerHTML =
+        '<div class="topic-edit">' +
+          '<input type="text" class="topic-edit-title" maxlength="60" />' +
+          '<textarea class="topic-edit-content" maxlength="500"></textarea>' +
+          '<div class="edit-actions">' +
+            '<button class="btn btn-primary" type="button">保存</button>' +
+            '<button class="btn" type="button">取消</button>' +
+          '</div>' +
+        '</div>';
+      const titleInput   = card.querySelector('.topic-edit-title');
+      const contentInput = card.querySelector('.topic-edit-content');
+      titleInput.value   = t.title;
+      contentInput.value = t.content || '';
+      contentInput.focus();
+
+      function save() {
+        const newTitle   = titleInput.value.trim();
+        const newContent = contentInput.value.trim();
+        if (!newTitle) { alert('话题标题不能为空'); return; }
+        // 禁言 / 屏蔽词检查（用原作者名）
+        const all0 = loadTopics();
+        const orig = all0.find(x => x.id === id);
+        const origName = orig ? orig.author : '匿名';
+        const check = validateSubmission(origName, newTitle + ' ' + newContent);
+        if (!check.ok) {
+          if (check.reason === 'muted') {
+            alert('⛔ 你的账号 "' + origName + '" 已被禁言，无法编辑。');
+          } else if (check.reason === 'banned') {
+            if (check.newlyMuted) {
+              alert('⛔ 你的账号 "' + origName + '" 因多次使用不当词汇，已被自动禁言 24 小时。');
+              updateMuteBanner();
+            } else {
+              alert('⚠️ 编辑内容包含不当词汇"' + check.word + '"。\n已收到第 ' + check.account.warnCount + ' 次警告。');
+            }
+            renderAdminPanel();
+          }
+          return;
+        }
+        const all = loadTopics();
+        const idx = all.findIndex(x => x.id === id);
+        if (idx >= 0) {
+          all[idx].title   = newTitle;
+          all[idx].content = newContent;
+          all[idx].edited  = fmtTime(Date.now());
+          saveTopics(all);
+          renderTopics();
+        }
+      }
+      card.querySelector('.btn-primary').addEventListener('click', save);
+      card.querySelector('.btn:not(.btn-primary)').addEventListener('click', renderTopics);
+      contentInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) save();
+        if (e.key === 'Escape') renderTopics();
+      });
+    }
+
+    // 回复编辑
+    function enterReplyEdit(div, topicId, replyId) {
+      const topics = loadTopics();
+      const t = topics.find(x => x.id === topicId);
+      if (!t) return;
+      const r = (t.replies || []).find(x => x.id === replyId);
+      if (!r) return;
+      div.classList.add('reply-editing');
+      div.innerHTML =
+        '<div class="reply-edit">' +
+          '<textarea class="reply-edit-content" maxlength="300"></textarea>' +
+          '<div class="edit-actions">' +
+            '<button class="btn btn-primary" type="button">保存</button>' +
+            '<button class="btn" type="button">取消</button>' +
+          '</div>' +
+        '</div>';
+      const ta = div.querySelector('.reply-edit-content');
+      ta.value = r.content;
+      ta.focus();
+      ta.setSelectionRange(ta.value.length, ta.value.length);
+
+      function save() {
+        const v = ta.value.trim();
+        if (!v) { alert('回复内容不能为空'); return; }
+        // 禁言 / 屏蔽词检查
+        const all0 = loadTopics();
+        const t0 = all0.find(x => x.id === topicId);
+        const r0 = t0 ? (t0.replies || []).find(x => x.id === replyId) : null;
+        const origName = r0 ? r0.author : '匿名';
+        const check = validateSubmission(origName, v);
+        if (!check.ok) {
+          if (check.reason === 'muted') {
+            alert('⛔ 你的账号 "' + origName + '" 已被禁言，无法编辑。');
+          } else if (check.reason === 'banned') {
+            if (check.newlyMuted) {
+              alert('⛔ 你的账号 "' + origName + '" 因多次使用不当词汇，已被自动禁言 24 小时。');
+              updateMuteBanner();
+            } else {
+              alert('⚠️ 回复内容包含不当词汇"' + check.word + '"。\n已收到第 ' + check.account.warnCount + ' 次警告。');
+            }
+            renderAdminPanel();
+          }
+          return;
+        }
+        const all = loadTopics();
+        const t2  = all.find(x => x.id === topicId);
+        if (!t2) return;
+        const r2  = (t2.replies || []).find(x => x.id === replyId);
+        if (!r2) return;
+        r2.content = v;
+        r2.edited  = fmtTime(Date.now());
+        saveTopics(all);
+        renderTopics();
+      }
+      div.querySelector('.btn-primary').addEventListener('click', save);
+      div.querySelector('.btn:not(.btn-primary)').addEventListener('click', renderTopics);
+      ta.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) save();
+        if (e.key === 'Escape') renderTopics();
+      });
+    }
+
+    function deleteTopic(id) {
+      if (!confirm('确定要删除这个话题吗？话题下的所有回复也会一起被删除。')) return;
+      const oldTopics = loadTopics();
+      const t = oldTopics.find(x => x.id === id);
+      saveTopics(oldTopics.filter(x => x.id !== id));
+      // 清理 owners
+      const replyIds = t ? (t.replies || []).map(r => r.id) : [];
+      saveTopicOwners(loadTopicOwners().filter(o => o !== id && !replyIds.includes(o)));
+      renderTopics();
+    }
+
+    function deleteReply(topicId, replyId) {
+      if (!confirm('确定要删除这条回复吗？')) return;
+      const topics = loadTopics();
+      const t = topics.find(x => x.id === topicId);
+      if (!t) return;
+      t.replies = (t.replies || []).filter(r => r.id !== replyId);
+      saveTopics(topics);
+      saveTopicOwners(loadTopicOwners().filter(o => o !== replyId));
+      renderTopics();
+    }
+
+    function addReply(topicId, author, content, avatar) {
+      const topics = loadTopics();
+      const t = topics.find(x => x.id === topicId);
+      if (!t) return;
+      if (!t.replies) t.replies = [];
+      const newReply = { id: genId('r'), author: author, content: content, avatar: avatar || null, t: Date.now() };
+      t.replies.push(newReply);
+      saveTopics(topics);
+      const owners = loadTopicOwners();
+      owners.push(newReply.id);
+      saveTopicOwners(owners);
+      renderTopics();
+    }
+
+    // 新话题表单
+    const newTopicForm = document.getElementById('newTopicForm');
+    document.getElementById('btnToggleNewTopic').addEventListener('click', () => {
+      const isOpen = newTopicForm.style.display !== 'none';
+      newTopicForm.style.display = isOpen ? 'none' : '';
+      if (!isOpen) {
+        document.getElementById('newTopicName').focus();
+        newTopicForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+    document.getElementById('btnCancelTopic').addEventListener('click', () => {
+      newTopicForm.style.display = 'none';
+    });
+    newTopicForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name    = document.getElementById('newTopicName').value.trim();
+      const title   = document.getElementById('newTopicTitle').value.trim();
+      const content = document.getElementById('newTopicContent').value.trim();
+      if (!name || !title) return;
+      // 禁言 / 屏蔽词检查
+      const check = validateSubmission(name, title + ' ' + content);
+      if (!check.ok) {
+        if (check.reason === 'muted') {
+          alert('⛔ 你的账号 "' + name + '" 已被禁言，到 ' + fmtDateTime(check.account.muteUntil) + ' 解除。');
+        } else if (check.reason === 'banned') {
+          if (check.newlyMuted) {
+            alert('⛔ 你的账号 "' + name + '" 因多次使用不当词汇，已被自动禁言 24 小时（到 ' + fmtDateTime(check.account.muteUntil) + '）。\n请联系管理员解除。');
+            updateMuteBanner();
+          } else {
+            alert('⚠️ 内容包含不当词汇"' + check.word + '"，请修改后再试。\n\n已收到第 ' + check.account.warnCount + ' 次警告，累计 ' + MAX_WARNINGS + ' 次将被禁言 24 小时。');
+          }
+          renderAdminPanel();
+        }
+        return;
+      }
+      const sess = loadSession();
+      const avatar = sess ? sess.avatar : null;
+      const topics = loadTopics();
+      const newTopic = { id: genId('t'), title: title, content: content, author: name, avatar: avatar, t: Date.now(), replies: [] };
+      topics.push(newTopic);
+      saveTopics(topics);
+      const owners = loadTopicOwners();
+      owners.push(newTopic.id);
+      saveTopicOwners(owners);
+      newTopicForm.reset();
+      newTopicForm.style.display = 'none';
+      prefillNamesFromSession();
+      renderTopics();
+      setTimeout(() => {
+        const firstCard = document.querySelector('.topic-card');
+        if (firstCard) firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 50);
+    });
+
+    // 导出
+    document.getElementById('btnExportTopics').addEventListener('click', () => {
+      const data = loadTopics();
+      if (!data.length) { alert('当前没有任何话题可以导出'); return; }
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'muzhicheng-topics-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    // 导入
+    document.getElementById('fileImportTopics').addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (!confirm('导入会与现有话题合并（重复 ID 会被跳过），继续吗？')) {
+        e.target.value = '';
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const incoming = JSON.parse(ev.target.result);
+          if (!Array.isArray(incoming)) throw new Error('文件内容不是话题数组');
+          const existing = loadTopics();
+          const existingIds = new Set(existing.map(t => t.id));
+          const merged = existing.slice();
+          let added = 0;
+          incoming.forEach(t => {
+            if (!t || typeof t !== 'object') return;
+            if (!t.id)    t.id = genId('t');
+            if (!t.title) return;
+            if (!t.replies) t.replies = [];
+            if (!t.t)     t.t = Date.now();
+            if (!existingIds.has(t.id)) {
+              merged.push(t);
+              existingIds.add(t.id);
+              added++;
+            }
+          });
+          merged.sort((a, b) => a.t - b.t);
+          saveTopics(merged);
+          renderTopics();
+          alert('导入完成：新增 ' + added + ' 个话题，跳过重复 ' + (incoming.length - added) + ' 个');
+        } catch (err) {
+          alert('导入失败：' + err.message);
+        }
+        e.target.value = '';
+      };
+      reader.readAsText(file);
+    });
+
+    // 跨标签页同步
+    window.addEventListener('storage', (e) => {
+      if (e.key === TOPIC_KEY || e.key === TOPIC_OWNER_KEY) renderTopics();
+      if (e.key === SESSION_KEY) {
+        renderSessionCard();
+        prefillNamesFromSession();
+        renderTopics();
+        updateMuteBanner();
+      }
+      if (e.key === MUTED_KEY || e.key === BANNED_KEY) {
+        renderAdminPanel();
+        updateMuteBanner();
+        renderTopics();  // 刷新 bannedWordCount
+      }
+    });
+
+    renderSessionCard();
+    prefillNamesFromSession();
+    renderTopics();
+    updateMuteBanner();
+    renderAdminPanel();
+
+    /* ============ 管理员面板：密码保护（仅开发者可见） ============ */
+    // 管理员密码
+    const ADMIN_PASS = 'Fjy09230304';
+    const ADMIN_UNLOCK_KEY = 'mzc_admin_unlocked';
+    function isAdminUnlocked() {
+      try { return sessionStorage.getItem(ADMIN_UNLOCK_KEY) === 'yes'; } catch (e) { return false; }
+    }
+    function tryUnlockAdmin() {
+      const pw = prompt('🔒 管理员密码：');
+      if (pw === null) return;
+      if (pw === ADMIN_PASS) {
+        try { sessionStorage.setItem(ADMIN_UNLOCK_KEY, 'yes'); } catch (e) {}
+        document.getElementById('admin').classList.add('unlocked');
+        renderAdminPanel();
+        // 滚到面板
+        setTimeout(() => {
+          document.getElementById('admin').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+        alert('✅ 解锁成功 · 本次会话期间一直有效，关浏览器后需重新输入');
+      } else {
+        alert('❌ 密码错误');
+      }
+    }
+    function lockAdmin() {
+      try { sessionStorage.removeItem(ADMIN_UNLOCK_KEY); } catch (e) {}
+      document.getElementById('admin').classList.remove('unlocked');
+    }
+    // 页面加载时检查
+    if (isAdminUnlocked()) {
+      document.getElementById('admin').classList.add('unlocked');
+    }
+    // 入口按钮（页脚"🛡️ 管理员入口"）
+    document.getElementById('adminEntry').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (isAdminUnlocked()) {
+        if (confirm('管理员面板已解锁。\n\n点"确定"立即锁定（重新隐藏），点"取消"保持解锁。')) {
+          lockAdmin();
+        }
+      } else {
+        tryUnlockAdmin();
+      }
+    });
+  </script>
+</body>
+</html>
