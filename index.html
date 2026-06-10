@@ -683,6 +683,37 @@
     }
     .admin-entry:hover { color: var(--accent-gold); }
 
+    /* 管理员面板 - 共享数据同步小节 */
+    .admin-sub-title {
+      font-size: 17px; font-weight: 700; color: var(--text);
+      margin: 32px 0 8px; padding-left: 12px;
+      border-left: 3px solid var(--accent-pink);
+    }
+    .admin-sub-tip {
+      font-size: 13px; color: var(--text-dim);
+      margin: 0 0 16px; line-height: 1.7;
+    }
+    .admin-share-row {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 12px; align-items: center;
+    }
+    .admin-share-input {
+      flex: 1; min-width: 240px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); padding: 10px 14px; border-radius: 10px;
+      font-family: inherit; font-size: 13px;
+    }
+    .admin-share-input::placeholder { color: var(--text-dim); }
+    .admin-share-input:focus { outline: none; border-color: var(--accent-pink); }
+    .admin-share-status {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px; color: var(--text-dim);
+      margin-top: 4px;
+    }
+
     /* ---------- 互动榜：登录 / 头像 / 表情 ---------- */
     .session-card {
       background: var(--card); border: 1px solid var(--border);
@@ -1325,7 +1356,7 @@
   <section id="admin">
     <div class="container">
       <h2 class="section-title">🛡️ 管理员面板</h2>
-      <p class="section-sub">禁言账号管理 · 只有你能解除禁言</p>
+      <p class="section-sub">禁言账号管理 · 共享数据同步 · 只有你能操作</p>
 
       <div class="admin-warn">
         ⚠️ <strong>关于权限：</strong>本面板用 localStorage 存储，<strong>任何打开此页面的人都能看到</strong>。要保护后台，请把网站部署到自己的服务器并加密码 / 鉴权；本地静态站无安全机制。
@@ -1334,6 +1365,22 @@
       <div class="admin-stats" id="adminStats">📊 加载中...</div>
 
       <div class="admin-list" id="adminList"></div>
+
+      <h3 class="admin-sub-title" style="margin-top:40px;">🌐 共享数据同步</h3>
+      <p class="admin-sub-tip">让所有访客看到大家的留言 / 话题。原理：访客打开页面时从这个 URL 拉取 JSON 并合并到本地。**你（管理员）需要定期"导出合并数据"并手动上传到该 URL**（比如用 GitHub Gist、jsonbin.io、自己的服务器）。</p>
+
+      <div class="admin-share-row">
+        <input type="text" id="sharedUrl" class="admin-share-input" placeholder="https://example.com/messages.json" />
+        <button class="btn btn-primary" id="btnSaveUrl" type="button">保存 URL</button>
+      </div>
+
+      <div class="admin-share-row">
+        <button class="btn" id="btnFetchNow" type="button">🔄 立即拉取最新</button>
+        <button class="btn" id="btnExportMerged" type="button">💾 下载 JSON</button>
+        <button class="btn btn-primary" id="btnPublish" type="button">📤 一键发布到共享 URL</button>
+      </div>
+
+      <div class="admin-share-status" id="shareStatus">未设置共享 URL</div>
 
       <div class="admin-empty" id="adminEmpty" style="display:none;">
         🎉 当前没有被禁言的账号
@@ -1344,22 +1391,16 @@
   <!-- ===================== 页脚 ===================== -->
   <footer>
     <div class="container">
-      <h3>📌 接下来如何完善这个站点</h3>
-      <ol>
-        <li>用记事本 / VSCode 打开 <code>index.html</code>，搜 <code>[ 在此粘贴 ]</code> 等占位文本替换。</li>
-        <li><strong>视频</strong>：到 B 站 / YouTube 找视频 → 点"分享 → 嵌入"→ 把 <code>iframe</code> 整段贴进对应 <code>.work-frame</code>。</li>
-        <li><strong>QQ 音乐</strong>：到 <code>y.qq.com</code> 搜歌名 → 进歌曲页 → 复制网址（形如 <code>y.qq.com/n/ryqq/songDetail/xxxxxx</code>）→ 把它粘进对应 <code>.btn-qq</code> 的 <code>href</code>，并把按钮的 <code>placeholder</code> 类删掉（变回绿色）。</li>
-        <li><strong>图片</strong>：把 <code>.gallery-item</code> 里的 <code>style="display:none;"</code> 删掉，再给 <code>img src</code> 填图包直链，灯箱就自动可用。</li>
-        <li><strong>头像</strong>：Hero 区头像已移除。如要加回来，在 hero 里加 <code>&lt;div class="hero-avatar"&gt;&lt;img src="头像URL"&gt;&lt;/div&gt;</code> 即可。</li>
-        <li>本地双击 <code>index.html</code> 即可在浏览器打开；想上线可以白嫖 GitHub Pages / Vercel。</li>
-      </ol>
-      <p style="margin-top:24px;">
-        ⚠️ <strong>版权提醒</strong>：QQ 音乐 / 网易云链接仅作为跳转到官方收听页的入口，音频文件版权归平台 / 唱片公司所有，请勿抓取直链放到本站。
-        留言板内容保存在当前浏览器（localStorage），不会随刷新/关闭丢失。点"导出 JSON"可永久备份；换设备时用"导入 JSON"恢复。每条留言的"编辑/删除"按钮只有发件人自己可见。
-      </p>
       <p style="text-align:center; margin-top:32px; opacity:0.6;">
         ✦ 祉愿同纸 · 恩仔的应援站 ✦
         <a href="#" class="admin-entry" id="adminEntry" title="管理员入口（需密码）">🛡️ 管理员入口</a>
+      </p>
+      <p style="text-align:center; margin-top:12px; opacity:0.7; font-size: 13px;">
+        创始人：
+        <a href="https://weibo.com/u/7570793654" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: none;">
+          <svg style="vertical-align: -2px; margin-right: 2px;" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10.098 20.323c-3.977-.391-7.378-2.081-8.494-4.602C.602 13.305 1.058 9.92 3.34 7.832c2.913-2.671 7.298-3.74 11.106-2.85 1.018.236 1.642.5 1.746.737.064.146-.04.236-.392.336-.61.317-1.097.713-1.246 1.247-.084.302-.07.45.061.633.21.293.667.624 1.078.776 1.27.466 2.85.45 4.107-.043 1.575-.617 2.878-1.832 3.587-1.331 1.05-3.394 1.394-5.169.864-.799-.236-1.084-.231-1.392.024-.7.582-1.474 1.715-1.064 1.776.183.027.385.07.45.097.066.027-.131.252-.444.502-1.087.873-1.99 1.815-2.567 2.65-.399.576-.575 1.605-.43 2.51.182 1.131 1.305 1.967 2.658 1.974.7.004 1.27-.13 2.06-.487 1.946-.879 3.473-2.305 4.226-3.94.252-.547.484-1.06.515-1.139.135-.345.474-.31.566.06.066.262.045 1.401-.04 2.123-.5 4.243-2.86 7.372-5.49 7.272-1.493-.057-2.42-.51-3.073-1.493-.347-.521-.395-.71-.395-1.567 0-.86-.038-1.012-.295-1.293-.343-.376-.927-.45-1.29-.166-.395.31-.358 1.063.07 1.395.31.243.345.355.823.247 1.36-.08.394-.014.476.394.493.564.024 1.107-.353 1.78-1.066 1.885-1.7 1.91-1.85 1.91-2.96 0-.531-.106-1.165-.235-1.41-.28-.527-.41-.443-.41.27 0 .73-.31 1.715-.66 2.08-.395.413-.532.213-.4-.59-.072-.443-.026-1.14.094-1.422.061-.143.05-.143-.404 0-.288.04-.293.139-.07.297.252.31 1.515.028 1.844-.103.151-.103.151.024.245.353.262.515.034 1.04-.66 1.713-1.94 1.713-1.084 0-1.794-.66-2.115-1.964-.18-.732-.066-2.27.213-2.888.114-.253.131-.405.066-.566-.18-.448-.06-1.852.222-2.59.119-.31.387-.788.594-1.063l.376-.5-.376-1.273c-.207-.7-.378-1.276-.378-1.279 0-.003.15-.21.336-.461.422-.572 1.19-2.183 1.356-2.84.07-.275.221-.711.337-.97.234-.523.234-.526.005-1.084-.547-1.327-1.464-1.18-2.683.444-1.732 2.305-1.32 3.421 2.14 1.4 1.085 3.464 1.252 4.581.371 2.422 1.082 4.65 1.945 6.526.665 1.448 1.046 1.95 1.84 2.422 1.36.806 1.79 1.32 1.79 2.124 0 1.336-.39 2.013-1.43 2.475-.717.319-1.005.346-3.13.346-1.713 0-2.41.05-2.728.198z"/></svg>
+          蝶玑
+        </a>
       </p>
     </div>
   </footer>
@@ -2900,6 +2941,176 @@
         tryUnlockAdmin();
       }
     });
+
+    /* ============ 共享数据同步（让所有访客看到大家的留言 / 话题） ============ */
+    const SHARED_URL_KEY = 'mzc_fan_shared_url_v1';
+    function getSharedUrl() {
+      try { return localStorage.getItem(SHARED_URL_KEY) || ''; } catch (e) { return ''; }
+    }
+    function setSharedUrl(url) {
+      try { localStorage.setItem(SHARED_URL_KEY, url); } catch (e) {}
+    }
+    function updateShareStatus(msg) {
+      const el = document.getElementById('shareStatus');
+      if (el) el.textContent = msg;
+    }
+    function setShareInputValue() {
+      const input = document.getElementById('sharedUrl');
+      if (input) input.value = getSharedUrl();
+    }
+    // 拉取 + 合并（按 ID 去重）
+    async function fetchSharedData(opts) {
+      opts = opts || {};
+      const silent = !!opts.silent;
+      const url = getSharedUrl();
+      if (!url) {
+        if (!silent) alert('请先在下方设置共享数据 URL');
+        return { ok: false, reason: 'no-url' };
+      }
+      updateShareStatus('⏳ 正在从共享 URL 拉取…');
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) {
+          updateShareStatus('❌ 拉取失败：HTTP ' + res.status + '（' + url + '）');
+          if (!silent) alert('拉取失败：HTTP ' + res.status);
+          return { ok: false, reason: 'http-error' };
+        }
+        const data = await res.json();
+        let msgAdded = 0, topicAdded = 0;
+
+        // 合并留言
+        if (Array.isArray(data.messages)) {
+          const local = loadMessages();
+          const localIds = new Set(local.map(m => m.id));
+          data.messages.forEach(m => {
+            if (m && m.id && !localIds.has(m.id)) {
+              if (!m.name || !m.text) return;
+              local.push(m);
+              msgAdded++;
+            }
+          });
+          if (msgAdded > 0) saveMessages(local);
+        }
+
+        // 合并话题（含回复）
+        if (Array.isArray(data.topics)) {
+          const local = loadTopics();
+          const localIds = new Set(local.map(t => t.id));
+          data.topics.forEach(t => {
+            if (t && t.id && !localIds.has(t.id)) {
+              if (!t.title) return;
+              if (!t.replies) t.replies = [];
+              t.replies.forEach(r => {
+                if (r && !r.id) r.id = 'r_imp_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+                if (r && !r.author) r.author = '匿名';
+                if (r && !r.content) return;
+              });
+              local.push(t);
+              topicAdded++;
+            }
+          });
+          if (topicAdded > 0) saveTopics(local);
+        }
+
+        updateShareStatus('✅ 已拉取：新增 ' + msgAdded + ' 条留言 · ' + topicAdded + ' 个话题 · URL: ' + url);
+        if (!silent) alert('✅ 拉取完成\n新增 ' + msgAdded + ' 条留言 · ' + topicAdded + ' 个话题');
+        // 重新渲染
+        renderMessages();
+        renderTopics();
+        return { ok: true, msgAdded: msgAdded, topicAdded: topicAdded };
+      } catch (err) {
+        updateShareStatus('❌ 拉取失败：' + err.message);
+        if (!silent) alert('拉取失败：' + err.message);
+        return { ok: false, reason: 'error' };
+      }
+    }
+    // 导出合并数据（管理员手动上传到共享 URL 用）
+    function exportMergedData() {
+      const data = {
+        messages: loadMessages(),
+        topics: loadTopics(),
+        exportedAt: new Date().toISOString(),
+        source: 'muzhicheng-fansite',
+        version: 1
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'muzhicheng-shared-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      updateShareStatus('📤 已下载合并数据 · 上传到你设置的 URL 即可');
+    }
+    // 页面加载时填入 URL 输入框
+    setShareInputValue();
+    if (getSharedUrl()) updateShareStatus('🌐 已设置共享 URL：' + getSharedUrl() + '（加载时自动拉取）');
+    // 按钮事件
+    document.getElementById('btnSaveUrl').addEventListener('click', () => {
+      const input = document.getElementById('sharedUrl');
+      const url = input.value.trim();
+      if (!url) { alert('URL 不能为空'); return; }
+      if (!/^https?:\/\//.test(url)) { alert('URL 必须以 http:// 或 https:// 开头'); return; }
+      setSharedUrl(url);
+      updateShareStatus('🌐 已设置共享 URL：' + url + ' · 立刻拉取…');
+      fetchSharedData();
+    });
+    document.getElementById('btnFetchNow').addEventListener('click', () => {
+      fetchSharedData();
+    });
+    document.getElementById('btnExportMerged').addEventListener('click', () => {
+      exportMergedData();
+    });
+    document.getElementById('btnPublish').addEventListener('click', () => {
+      publishToShared();
+    });
+
+    /* ============ 一键发布到共享 URL（POST 当前合并数据） ============ */
+    async function publishToShared() {
+      const url = getSharedUrl();
+      if (!url) { alert('请先设置共享 URL'); return; }
+      if (!/^https?:\/\//.test(url)) { alert('URL 必须以 http:// 或 https:// 开头'); return; }
+      updateShareStatus('📤 正在发布合并数据到 ' + url + '…');
+      const data = {
+        messages: loadMessages(),
+        topics: loadTopics(),
+        exportedAt: new Date().toISOString(),
+        source: 'muzhicheng-fansite',
+        version: 1
+      };
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) {
+          updateShareStatus('❌ 发布失败：HTTP ' + res.status);
+          alert('发布失败：HTTP ' + res.status + '\n\n可能原因：\n· 本地 server.js 没运行\n· URL 是只读存储（如 GitHub raw）不支持 POST\n· CORS 限制');
+          return;
+        }
+        updateShareStatus('✅ 已发布到 ' + url + ' · ' + data.messages.length + ' 条留言 + ' + data.topics.length + ' 个话题');
+        alert('✅ 发布成功！\n\n' + data.messages.length + ' 条留言 + ' + data.topics.length + ' 个话题已写入共享数据。\n\n其他访客下次打开页面会自动看到。');
+      } catch (err) {
+        updateShareStatus('❌ 发布失败：' + err.message);
+        alert('发布失败：' + err.message + '\n\n可能原因：\n· 本地 server.js 没运行（终端关了？）\n· URL 不支持 POST');
+      }
+    }
+
+    /* 首次自动预填本地服务器地址（仅当 URL 还是空时） */
+    if (!getSharedUrl()) {
+      const localDefault = 'http://127.0.0.1:8787/shared-messages.json';
+      setSharedUrl(localDefault);
+      setShareInputValue();
+      updateShareStatus('🆕 已自动预填本地服务器地址（' + localDefault + '）· 如果 server.js 在运行则可用');
+    }
+
+    /* 页面加载时：自动拉取一次共享数据（如果有 URL） */
+    if (getSharedUrl()) {
+      fetchSharedData({ silent: true });
+    }
   </script>
 </body>
 </html>
